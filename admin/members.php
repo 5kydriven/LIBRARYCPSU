@@ -11,14 +11,7 @@ include '../phpqrcode/qrlib.php'; ?>
 				<div class="card-box mb-30">
 					<div class="pd-20">
 						<h4 class="text-blue h4">Members</h4>
-
-
-
-						<a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addmember" type="button" style="margin-top: -2em">Add Member</a>
-
-
-						
-
+						<a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addmember" type="button" style="margin-top: -2em">Add Member</a>		
 					</div>
 
 					<div class="pb-20">
@@ -82,9 +75,6 @@ include '../phpqrcode/qrlib.php'; ?>
 										</tr>
 
 
-
-
-
 						<div class="modal fade" id="edit<?php echo $row['memid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
@@ -132,9 +122,9 @@ include '../phpqrcode/qrlib.php'; ?>
 															<option value="<?php echo $row['type'] ?>"><?php echo $row['type'] ?></option>
 															<option>Student</option>
 															<option>Faculty</option>
-															
-															<!-- additional alumni, staff and visitor -->
-
+															<option>Alumni</option>
+															<option>Visitor</option>
+															<option>Staff</option>
 														</select>
 													</div>
 												</div>
