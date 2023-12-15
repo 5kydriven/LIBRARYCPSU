@@ -68,10 +68,8 @@
 											<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
 											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a></td>
 										</tr>
-
-
-
 							<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+								
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -257,7 +255,7 @@
 				</div>
 
 
-
+<!-- Add book -->
 					<div class="modal fade" id="addbook" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
