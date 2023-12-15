@@ -56,12 +56,6 @@ include '../phpqrcode/qrlib.php'; ?>
 
 											<td><?php echo $row['idnumber'] ?></td>
 											<td><?php echo $row['fullname'] ?></td>
-
-
-
-
-
-
 											<td><?php echo $row['number'] ?></td>
 											<td><?php echo $row['gender'] ?></td>
 											<td><?php echo $row['type'] ?></td>
@@ -74,7 +68,7 @@ include '../phpqrcode/qrlib.php'; ?>
 										</td>
 										</tr>
 
-
+<!-- Edit modal -->
 						<div class="modal fade" id="edit<?php echo $row['memid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
@@ -100,10 +94,7 @@ include '../phpqrcode/qrlib.php'; ?>
 													<label class="col-sm-12 col-md-2 col-form-label">Mobile Number<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" type="text" maxlength="10" pattern="[0-9 .]+" name="number" placeholder="Ex.  907000000" required="" value="<?php echo $row['number'] ?>">
-
 													</div>
-													
-
 												</div>
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Gender<i style="color:red;font-size:1.5em;">*</i></label>
@@ -153,21 +144,15 @@ include '../phpqrcode/qrlib.php'; ?>
 															<option>BSED</option>
 														</select>
 													</div>
-												</div>
-												
-
+												</div>										
 												<input type="submit" class="btn btn-primary pull-right" name="submit" value="Save">
-											
 											</form>
 										</div>
 									</div>
 								</div>
 							</div>
 										
-									<?php
-								}
-
-								?>
+									<?php } ?>
 								
 							</tbody>
 						</table>
@@ -175,7 +160,7 @@ include '../phpqrcode/qrlib.php'; ?>
 				</div>
 
 
-
+<!-- Add Modal -->
 							<div class="modal fade" id="addmember" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
@@ -213,9 +198,9 @@ include '../phpqrcode/qrlib.php'; ?>
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Fullname<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Name<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Fullname" type="text" name="fullname" required="">
+														<input class="form-control" placeholder="(Last name, First name MI)" type="text" name="fullname" required="">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -224,38 +209,50 @@ include '../phpqrcode/qrlib.php'; ?>
 														<input class="form-control" type="text" maxlength="10" pattern="[0-9 .]+" name="number" placeholder="Ex.  907000000" required="">
 													</div>
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Address<i style="color:red;font-size:1.5em;">*</i></label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Address" type="text" name="address" required="">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Guardian</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Guardian" type="text" name="guardian">
+													</div>
+												</div>
+
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Gender<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<select class="custom-select col-12" name="gender" required="">
-															<option selected="">Choose gender.</option>
+															<option selected="">Choose gender</option>
 															<option>Male</option>
 															<option>Female</option>
 														</select>
 													</div>
 												</div>
 
-
-
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Type<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<select class="custom-select col-12" name="type" required="" onchange="yesnoCheck(this)">
-															<option selected="">Choose type.</option>
+															<option selected="">Choose type</option>
 															<option value="Student">Student</option>
 															<option value="Faculty">Faculty</option>
+															<option value="Alumni">Alumni</option>
+															<option value="Visitor">Visitor</option>
+															<option value="Staff">Staff</option>
 														</select>
 													</div>
 												</div>
 
-
-
-
-
 												<div class="form-group row" id="ifYes" style="display: none">
 													<label class="col-md-2 col-form-label"></label>
 													<div class="col-md-10" style="margin-left: 5.2em">
-														<select class="custom-select col-12" name="level">
+														<select class="custom-select col-12" name="level" required="">
 															<option selected="">Choose year level.</option>
 															<option>I</option>
 															<option>II</option>
@@ -267,8 +264,8 @@ include '../phpqrcode/qrlib.php'; ?>
 												<div class="form-group row" id="ifYess" style="display: none">
 													<label class="col-md-2 col-form-label"></label>
 													<div class="col-md-10" style="margin-left: 5.2em">
-														<select class="custom-select col-12" name="course">
-															<option selected="">Choose course.</option>
+														<select class="custom-select col-12" name="course" required="">
+															<option selected="">Choose course</option>
 															<option>BSIT</option>
 															<option>BSCRIM</option>
 															<option>BSHM</option>
@@ -277,44 +274,24 @@ include '../phpqrcode/qrlib.php'; ?>
 														</select>
 													</div>
 												</div>
-												
-
-<script type="text/javascript">
-    
-
-function yesnoCheck(that) {
-
-    if (that.value == "Student") {
-
-      
-        document.getElementById("ifYes").style.display = "block";
-
-        document.getElementById("ifYess").style.display = "block";
-    }
-
-     else if (that.value == "Faculty") {
-
-      
-      
-        document.getElementById("ifYes").style.display = "none";
-
-        document.getElementById("ifYess").style.display = "none";
-      
-    }
-
-
-}
-
-</script>
-
 												<input type="submit" class="btn btn-primary pull-right" name="submit" value="Save">
-											
 											</form>
 										</div>
 									</div>
 								</div>
 							</div>
-
+<script type="text/javascript">
+	function yesnoCheck(that) {
+		if (that.value == "Student") {
+			document.getElementById("ifYes").style.display = "block";
+			document.getElementById("ifYess").style.display = "block";
+		}
+		else {
+			document.getElementById("ifYes").style.display = "none";
+			document.getElementById("ifYess").style.display = "none";  
+		}
+	}
+</script>
 
 
 
