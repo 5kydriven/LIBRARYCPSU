@@ -253,7 +253,7 @@ include '../phpqrcode/qrlib.php'; ?>
 													<label class="col-md-2 col-form-label"></label>
 													<div class="col-md-10" style="margin-left: 5.2em">
 														<select class="custom-select col-12" name="level" required="">
-															<option selected="">Choose year level.</option>
+															<option selected="">Choose year level</option>
 															<option>I</option>
 															<option>II</option>
 															<option>III</option>
