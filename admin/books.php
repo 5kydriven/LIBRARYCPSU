@@ -69,9 +69,10 @@
 											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a></td>
 										</tr>
 							<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-								
-								<div class="modal-dialog modal-dialog-centered">
-									<div class="modal-content">
+
+<!-- update book -->
+								<div class="modal-dialog modal-dialog-centered modal-lg">
+									<div class="modal-content container-fluid">
 										<div class="modal-header">
 											<h4 class="modal-title" id="myLargeModalLabel">Update Book</h4>
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -85,14 +86,44 @@
 													</div>
 												</div>
 
+												<div class="row">
+													<label class="col-sm-12 col-md col-form-label">Sub Title</label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" type="text" placeholder="Sub Title" name="subTitle" maxlength="50" value="<?php echo $row['subtitle']?>">
+													</div>
+												</div>
+
+												<div class="row">
+													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" type="text" placeholder="Call Number" name="callnum" required="" maxlength="50" value="<?php echo $row['callnum']?>">
+													</div>
+												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Authors<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Author<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" placeholder="Authors" type="text" name="authors"  value="<?php echo $row['authors'] ?>">
-													</div>
-
-										
+													</div>										
 												</div>
+
+												<div class="form-group row">													
+													<label class="col-sm-12 col-md-12 col-form-label">Other Statement of Responsibility</label>													
+															<label class="col col-form-label "><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10 mb-1">
+																<input class="form-control" placeholder="1. " type="text" name="state1" value="<?php echo $row['state1']?>">
+															</div>
+													
+															<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10 mb-1">
+																<input class="form-control" placeholder="2. " type="text" name="state2" value="<?php echo $row['state2']?>">
+															</div>
+													
+															<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10">
+																<input class="form-control" placeholder="3. " type="text" name="state3" value="<?php echo $row['state3']?>">
+															</div>
+												</div>												
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Edition</label>
@@ -101,6 +132,22 @@
 													</div>
 												</div>
 
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1.5em;">*</i></label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Copies" type="number" name="copies" required="" value="<?php echo $row['copies'] ?>">
+													</div>
+												</div>												
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
+													<div class="col-sm-12 col-md-7">
+														<input class="form-control" type="text" placeholder="Publisher" name="publisher" value="<?php echo $row['publisher'] ?>">
+													</div>
+													<div class="col-sm col">
+														<input class="form-control" type="date" name="publisherDate" value="<?php echo $row['publisherdate']?>">
+													</div>
+												</div>
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Place of publication</label>
@@ -108,17 +155,64 @@
 														<input class="form-control" placeholder="Place of publication" type="text" name="publication" value="<?php echo $row['publication'] ?>">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
+													<label class="col-sm-12 col-md-2 col-form-label">Physical description</label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" placeholder="Publisher" name="publisher" value="<?php echo $row['publisher'] ?>">
+														<input class="form-control" type="text" name="physical" value="<?php echo $row['physical'] ?>">
+													</div>
+												</div>					
+												
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Series</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Series" type="text" name="series" value="<?php echo $row['series']?>">
 													</div>
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="1. " type="text" name="sub1" value="<?php echo $row['sub1']?>">
+													</div>
+
+													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="2. " type="text" name="sub2" value="<?php echo $row['sub2']?>">
+													</div>
+
+													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="3. " type="text" name="sub3" value="<?php echo $row['sub3']?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Note</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" type="text" name="notes" value="<?php echo $row['notes'] ?>">
+													</div>
+												</div>
+									
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">ISBN<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" type="text" placeholder="ISBN" name="isbn" required="" value="<?php echo $row['isbn'] ?>" maxlength="15" pattern="[0-9 .]+">
 													</div> 
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Book Dealer</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Book Dealer" type="text" name="dealer" value="<?php echo $row['bookdealer']?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Price</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="price" type="number" name="price" value="<?php echo $row['price']?>">
+													</div>
 												</div>
 												
 												<div class="form-group row">
@@ -127,12 +221,28 @@
 														<input class="form-control" placeholder="Copyright" type="text" name="copyright" value="<?php echo $row['copyright'] ?>">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md col-form-label">Account No.</label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Copies" type="number" name="copies" required="" value="<?php echo $row['copies'] ?>">
+														<input class="form-control" placeholder="Account Number" type="number" name="accnum" value="<?php echo $row['accnum']?>">
 													</div>
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-auto col-form-label">Date Recieved<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" type="date" name="dateRes" required="" value="<?php echo $row['dateres']?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-auto col-form-label">Source of Fund</label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" placeholder="Source of Fund" type="text" name="srcfund" value="<?php echo $row['srcfund']?>">
+													</div>
+												</div>
+												
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Location<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
@@ -168,18 +278,8 @@
 													</div>
 												</div>
 
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Physical description</label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" name="physical" value="<?php echo $row['physical'] ?>">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Notes</label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" name="notes" value="<?php echo $row['notes'] ?>">
-													</div>
-												</div>
+												
+												
 							
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Book Image</label>
