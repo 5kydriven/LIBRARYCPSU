@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 08, 2022 at 04:02 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 16, 2023 at 10:13 AM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `adminid` int(255) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `adminid` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`adminid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `admin`
@@ -47,12 +49,14 @@ INSERT INTO `admin` (`adminid`, `username`, `password`, `name`) VALUES
 -- Table structure for table `allowable`
 --
 
-CREATE TABLE `allowable` (
-  `allowid` int(10) NOT NULL,
+DROP TABLE IF EXISTS `allowable`;
+CREATE TABLE IF NOT EXISTS `allowable` (
+  `allowid` int NOT NULL AUTO_INCREMENT,
   `allowbooks` varchar(255) NOT NULL,
   `allowdays` varchar(255) NOT NULL,
-  `penalty` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `penalty` varchar(255) NOT NULL,
+  PRIMARY KEY (`allowid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `allowable`
@@ -67,11 +71,13 @@ INSERT INTO `allowable` (`allowid`, `allowbooks`, `allowdays`, `penalty`) VALUES
 -- Table structure for table `api`
 --
 
-CREATE TABLE `api` (
-  `id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `api`;
+CREATE TABLE IF NOT EXISTS `api` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `code` varchar(255) NOT NULL,
-  `pass` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `api`
@@ -86,41 +92,52 @@ INSERT INTO `api` (`id`, `code`, `pass`) VALUES
 -- Table structure for table `books`
 --
 
-CREATE TABLE `books` (
-  `bookid` int(10) NOT NULL,
+DROP TABLE IF EXISTS `books`;
+CREATE TABLE IF NOT EXISTS `books` (
+  `bookid` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
+  `subtitle` varchar(255) NOT NULL,
   `authors` varchar(255) NOT NULL,
-  `authors1` varchar(255) NOT NULL,
-  `authors2` varchar(255) NOT NULL,
-  `authors3` varchar(255) NOT NULL,
-  `authors4` varchar(255) NOT NULL,
+  `state1` varchar(255) NOT NULL,
+  `state2` varchar(255) NOT NULL,
+  `state3` varchar(255) NOT NULL,
   `edition` varchar(255) NOT NULL,
   `publication` varchar(255) NOT NULL,
   `publisher` varchar(255) NOT NULL,
+  `publisherdate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `series` varchar(255) NOT NULL,
+  `sub1` varchar(255) NOT NULL,
+  `sub2` varchar(255) NOT NULL,
+  `sub3` varchar(255) NOT NULL,
   `isbn` varchar(255) NOT NULL,
   `copyright` varchar(255) NOT NULL,
   `copies` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `rack` varchar(255) NOT NULL,
-  `colunn` varchar(255) NOT NULL,
-  `row` varchar(255) NOT NULL,
   `section` varchar(255) NOT NULL,
   `physical` varchar(255) NOT NULL,
   `notes` varchar(255) NOT NULL,
   `bookimage` varchar(255) NOT NULL,
-  `used` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `callnum` int NOT NULL,
+  `bookdealer` varchar(255) NOT NULL,
+  `accnum` int NOT NULL,
+  `dateres` varchar(255) NOT NULL,
+  `srcfund` varchar(255) NOT NULL,
+  `price` int NOT NULL,
+  PRIMARY KEY (`bookid`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`bookid`, `title`, `authors`, `authors1`, `authors2`, `authors3`, `authors4`, `edition`, `publication`, `publisher`, `isbn`, `copyright`, `copies`, `category`, `rack`, `colunn`, `row`, `section`, `physical`, `notes`, `bookimage`, `used`) VALUES
-(23, 'Text book on the Philippine Constitution', 'De Leon, Hector S.', '', '', '', '', '2014', 'Manila ', 'Rex Book Store', '9789712367298', '2014', '1', 'Reference', '', '', '', 'Filipinana', 'Ivi, 820p. ; 22cm', '', '', ''),
-(24, 'Assessment of student learning 1', 'Arellano, Aquilino D.', '', '', '', '', '2016', 'Manila Philippines', 'St. Andrew Publishing House', '9789710145119', '2016', '2', 'info tect', '', '', '', 'Reserved', 'iv, 105p. : ill.', '', '', ''),
-(25, 'Essential Mathematics for the Modern World', 'Nocon, Rizaldi C.', '', '', '', '', '2018', 'Quezon City', 'C&E Publishing Inc.', '9789719809333', '2018', '2', 'accounting', '', '', '', 'Reserved', 'x, 510 pages : ill ; 26cm', '', '', ''),
-(26, 'Data Analysis and Business Modeling ', 'Monohar, Hansa Lysander', '', '', '', '', '2017', 'New Delhi ', 'PHI Learning Private Limited', '9788120352889', '2017', '2', 'info tect', '', '', '', 'Circultion', 'xi, 367p. : ill', '', '', ''),
-(27, 'Practical Behavior Management', 'Lawrence, Tracey', '', '', '', '', '2017', 'India', 'Bloomsbury Publishing Plc', '9781472942357', '2017', '2', 'GEC', '', '', '', 'Circultion', 'x, 164p. : illustrations ; 22cm', '', '', '');
+INSERT INTO `books` (`bookid`, `title`, `subtitle`, `authors`, `state1`, `state2`, `state3`, `edition`, `publication`, `publisher`, `publisherdate`, `series`, `sub1`, `sub2`, `sub3`, `isbn`, `copyright`, `copies`, `category`, `section`, `physical`, `notes`, `bookimage`, `callnum`, `bookdealer`, `accnum`, `dateres`, `srcfund`, `price`) VALUES
+(23, 'Text book on the Philippine Constitution', '', 'De Leon, Hector S.', '', '', '', '2014', 'Manila ', 'Rex Book Store', '', '', '', '', '', '9789712367298', '2014', '0', 'Reference', 'Filipinana', 'Ivi, 820p. ; 22cm', '', '', 0, '', 0, '', '', 0),
+(24, 'Assessment of student learning 1', '', 'Arellano, Aquilino D.', '', '', '', '2016', 'Manila Philippines', 'St. Andrew Publishing House', '', '', '', '', '', '9789710145119', '2016', '2', 'info tect', 'Reserved', 'iv, 105p. : ill.', '', '', 0, '', 0, '', '', 0),
+(25, 'Essential Mathematics for the Modern World', '', 'Nocon, Rizaldi C.', '', '', '', '2018', 'Quezon City', 'C&E Publishing Inc.', '', '', '', '', '', '9789719809333', '2018', '2', 'accounting', 'Reserved', 'x, 510 pages : ill ; 26cm', '', '', 0, '', 0, '', '', 0),
+(26, 'Data Analysis and Business Modeling ', '', 'Monohar, Hansa Lysander', '', '', '', '2017', 'New Delhi ', 'PHI Learning Private Limited', '', '', '', '', '', '9788120352889', '2017', '2', 'info tect', 'Circultion', 'xi, 367p. : ill', '', '', 0, '', 0, '', '', 0),
+(27, 'Practical Behavior Management', '', 'Lawrence, Tracey', '', '', '', '2017', 'India', 'Bloomsbury Publishing Plc', '', '', '', '', '', '9781472942357', '2017', '2', 'GEC', 'Circultion', 'x, 164p. : illustrations ; 22cm', '', '', 0, '', 0, '', '', 0),
+(28, 'The 48 laws of power.', 'Key Insights & Analysis.', 'Robert Greene.', 'asdf.', 'asdf.', 'adfsa.', 'asdf.', 'asd.', 'asdf.', '2023-12-11', 'adf.', 'asdf.', 'adf.', 'asdf.', '21412341235131', 'asdf.', '1', 'agriculture', 'Reserved', 'adf.', 'asdf.', '', 123434134, 'asdfad.', 980879523, '2023-12-29', 'sdaf.', 258),
+(29, 'Atomic Habits', '', 'James Clear', '', '', '', '', '', '', '', '', '', '', '', '687456356354', '', '2', 'GEC', 'Fiction', '', '', '', 2147483647, '', 0, '2023-12-27', '', 0);
 
 -- --------------------------------------------------------
 
@@ -128,16 +145,18 @@ INSERT INTO `books` (`bookid`, `title`, `authors`, `authors1`, `authors2`, `auth
 -- Table structure for table `bookstatus`
 --
 
-CREATE TABLE `bookstatus` (
-  `bookstatusid` int(10) NOT NULL,
-  `booksid` int(10) NOT NULL,
-  `memid` int(10) NOT NULL,
+DROP TABLE IF EXISTS `bookstatus`;
+CREATE TABLE IF NOT EXISTS `bookstatus` (
+  `bookstatusid` int NOT NULL AUTO_INCREMENT,
+  `booksid` int NOT NULL,
+  `memid` int NOT NULL,
   `borrowed` varchar(255) NOT NULL,
   `returned` varchar(255) NOT NULL,
   `duedate` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `penalty` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `penalty` varchar(255) NOT NULL,
+  PRIMARY KEY (`bookstatusid`)
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `bookstatus`
@@ -146,7 +165,9 @@ CREATE TABLE `bookstatus` (
 INSERT INTO `bookstatus` (`bookstatusid`, `booksid`, `memid`, `borrowed`, `returned`, `duedate`, `status`, `penalty`) VALUES
 (112, 23, 18, '2022-02-20', '2022-02-20', '2022-02-22', 'returned', 'no penalty'),
 (113, 26, 20, '2022-02-20', '2022-02-21', '2022-02-22', 'returned', 'no penalty'),
-(114, 26, 21, '2022-02-22', '2022-02-22', '2022-02-26', 'returned', 'no penalty');
+(114, 26, 21, '2022-02-22', '2022-02-22', '2022-02-26', 'returned', 'no penalty'),
+(115, 26, 23, '2023-11-16', '2023-11-16', '2023-11-20', 'returned', 'no penalty'),
+(116, 23, 23, '2023-12-13', '', '2023-12-17', 'borrowed', 'no penalty');
 
 -- --------------------------------------------------------
 
@@ -154,10 +175,12 @@ INSERT INTO `bookstatus` (`bookstatusid`, `booksid`, `memid`, `borrowed`, `retur
 -- Table structure for table `category`
 --
 
-CREATE TABLE `category` (
-  `cateid` int(10) NOT NULL,
-  `category` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `cateid` int NOT NULL AUTO_INCREMENT,
+  `category` varchar(255) NOT NULL,
+  PRIMARY KEY (`cateid`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `category`
@@ -178,8 +201,9 @@ INSERT INTO `category` (`cateid`, `category`) VALUES
 -- Table structure for table `log`
 --
 
-CREATE TABLE `log` (
-  `logid` int(22) NOT NULL,
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE IF NOT EXISTS `log` (
+  `logid` int NOT NULL AUTO_INCREMENT,
   `memid` varchar(255) NOT NULL,
   `idnumber` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
@@ -187,8 +211,9 @@ CREATE TABLE `log` (
   `timeout` varchar(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `course` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`logid`)
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `log`
@@ -204,7 +229,12 @@ INSERT INTO `log` (`logid`, `memid`, `idnumber`, `date`, `timein`, `timeout`, `f
 (94, '21', 'CPSU-LRC-0004', 'Feb-22-2022 Tuesday', '08:29 AM', '06:44 PM', 'Mae', 'BSIT IV', 'Student'),
 (95, '22', 'CPSU-LRC-0005', 'Feb-22-2022 Tuesday', '10:54 AM', '10:54 AM', 'chester', ' ', 'Faculty'),
 (96, '22', 'CPSU-LRC-0005', 'Feb-22-2022 Tuesday', '10:54 AM', '', 'chester', ' ', 'Faculty'),
-(97, '21', 'CPSU-LRC-0004', 'Feb-22-2022 Tuesday', '06:45 PM', '', 'Mae', 'BSIT IV', 'Student');
+(97, '21', 'CPSU-LRC-0004', 'Feb-22-2022 Tuesday', '06:45 PM', '', 'Mae', 'BSIT IV', 'Student'),
+(98, '23', 'CPSU-LRC-0006', 'Nov-16-2023 Thursday', '11:39 AM', '11:41 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(99, '23', 'CPSU-LRC-0006', 'Nov-16-2023 Thursday', '11:42 AM', '', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(100, '23', 'CPSU-LRC-0006', 'Dec-13-2023 Wednesday', '01:01 AM', '01:02 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(101, '23', 'CPSU-LRC-0006', 'Dec-13-2023 Wednesday', '01:02 AM', '01:24 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(102, '23', 'CPSU-LRC-0006', 'Dec-13-2023 Wednesday', '01:28 AM', '01:32 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student');
 
 -- --------------------------------------------------------
 
@@ -212,8 +242,9 @@ INSERT INTO `log` (`logid`, `memid`, `idnumber`, `date`, `timein`, `timeout`, `f
 -- Table structure for table `members`
 --
 
-CREATE TABLE `members` (
-  `memid` int(255) NOT NULL,
+DROP TABLE IF EXISTS `members`;
+CREATE TABLE IF NOT EXISTS `members` (
+  `memid` int NOT NULL AUTO_INCREMENT,
   `idnumber` varchar(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `number` varchar(255) NOT NULL,
@@ -221,19 +252,25 @@ CREATE TABLE `members` (
   `type` varchar(255) NOT NULL,
   `yearlevel` varchar(255) NOT NULL,
   `course` varchar(255) NOT NULL,
-  `action` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `address` varchar(100) NOT NULL,
+  `guardian` varchar(100) NOT NULL,
+  `action` varchar(255) NOT NULL,
+  PRIMARY KEY (`memid`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`memid`, `idnumber`, `fullname`, `number`, `gender`, `type`, `yearlevel`, `course`, `action`) VALUES
-(18, 'CPSU-LRC-0001', 'Rejean', '9755326734', 'Female', 'Student', 'III', 'BSED', 'OFFLINE'),
-(19, 'CPSU-LRC-0002', 'Flora Mae Martinez', '9755326734', 'Male', 'Faculty', '', '', 'OFFLINE'),
-(20, 'CPSU-LRC-0003', 'Abbey', '9755326734', 'Female', 'Student', 'IV', 'BSIT', 'ONLINE'),
-(21, 'CPSU-LRC-0004', 'Mae', '9152902757', 'Female', 'Student', 'IV', 'BSIT', 'ONLINE'),
-(22, 'CPSU-LRC-0005', 'chester', '9755326734', 'Male', 'Faculty', '', '', 'ONLINE');
+INSERT INTO `members` (`memid`, `idnumber`, `fullname`, `number`, `gender`, `type`, `yearlevel`, `course`, `address`, `guardian`, `action`) VALUES
+(18, 'CPSU-LRC-0001', 'Rejean', '9755326734', 'Female', 'Student', 'III', 'BSED', '', '', 'OFFLINE'),
+(19, 'CPSU-LRC-0002', 'Flora Mae Martinez', '9755326734', 'Male', 'Faculty', '', '', '', '', 'OFFLINE'),
+(20, 'CPSU-LRC-0003', 'Abbey', '9755326734', 'Female', 'Student', 'IV', 'BSIT', '', '', 'ONLINE'),
+(21, 'CPSU-LRC-0004', 'Mae', '9152902757', 'Female', 'Student', 'IV', 'BSIT', '', '', 'ONLINE'),
+(22, 'CPSU-LRC-0005', 'chester', '9755326734', 'Male', 'Faculty', '', '', '', '', 'ONLINE'),
+(23, 'CPSU-LRC-0006', 'Mhel Angelo O. Tagpuno', '9385254044', 'Male', 'Student', 'III', 'BSIT', '', '', 'OFFLINE'),
+(24, 'CPSU-LRC-0007', 'Laguda, Wilson R', '9385254044', 'Male', 'Student', 'III', 'BSIT', 'San Carlos City', 'N/A', 'OFFLINE'),
+(25, 'CPSU-LRC-0008', 'Inodeo, Ilyn E', '9385254044', 'Female', 'Student', 'III', 'BSIT', 'Valle', 'N/A', 'OFFLINE');
 
 -- --------------------------------------------------------
 
@@ -241,13 +278,15 @@ INSERT INTO `members` (`memid`, `idnumber`, `fullname`, `number`, `gender`, `typ
 -- Table structure for table `reports`
 --
 
-CREATE TABLE `reports` (
-  `reportid` int(10) NOT NULL,
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE IF NOT EXISTS `reports` (
+  `reportid` int NOT NULL AUTO_INCREMENT,
   `fullname` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `task` varchar(255) NOT NULL,
-  `transactiondate` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `transactiondate` varchar(255) NOT NULL,
+  PRIMARY KEY (`reportid`)
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `reports`
@@ -322,123 +361,10 @@ INSERT INTO `reports` (`reportid`, `fullname`, `title`, `task`, `transactiondate
 (147, '18', '23', 'returned book', '2022-02-20'),
 (148, '20', '26', 'returned book', '2022-02-21'),
 (149, '21', '26', 'borrowed book', '2022-02-22'),
-(150, '21', '26', 'returned book', '2022-02-22');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`adminid`);
-
---
--- Indexes for table `allowable`
---
-ALTER TABLE `allowable`
-  ADD PRIMARY KEY (`allowid`);
-
---
--- Indexes for table `api`
---
-ALTER TABLE `api`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`bookid`);
-
---
--- Indexes for table `bookstatus`
---
-ALTER TABLE `bookstatus`
-  ADD PRIMARY KEY (`bookstatusid`);
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`cateid`);
-
---
--- Indexes for table `log`
---
-ALTER TABLE `log`
-  ADD PRIMARY KEY (`logid`);
-
---
--- Indexes for table `members`
---
-ALTER TABLE `members`
-  ADD PRIMARY KEY (`memid`);
-
---
--- Indexes for table `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`reportid`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `adminid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `allowable`
---
-ALTER TABLE `allowable`
-  MODIFY `allowid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `api`
---
-ALTER TABLE `api`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `books`
---
-ALTER TABLE `books`
-  MODIFY `bookid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `bookstatus`
---
-ALTER TABLE `bookstatus`
-  MODIFY `bookstatusid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `cateid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `log`
---
-ALTER TABLE `log`
-  MODIFY `logid` int(22) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
-
---
--- AUTO_INCREMENT for table `members`
---
-ALTER TABLE `members`
-  MODIFY `memid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT for table `reports`
---
-ALTER TABLE `reports`
-  MODIFY `reportid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+(150, '21', '26', 'returned book', '2022-02-22'),
+(151, '23', '26', 'borrowed book', '2023-11-16'),
+(152, '23', '26', 'returned book', '2023-11-16'),
+(153, '23', '23', 'borrowed book', '2023-12-13');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
