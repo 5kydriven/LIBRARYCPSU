@@ -223,9 +223,9 @@
 												</div>
 
 												<div class="row">
-													<label class="col-sm-12 col-md col-form-label">Sub Title<i style="color:red;font-size:1em;">*</i></label>
+													<label class="col-sm-12 col-md col-form-label">Sub Title</label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="text" placeholder="Sub Title" name="subTitle" required="" maxlength="50">
+														<input class="form-control" type="text" placeholder="Sub Title" name="subTitle" maxlength="50">
 													</div>
 												</div>
 
@@ -273,7 +273,7 @@
 												</div>
 
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" placeholder="Copies" type="number" name="copies" required="">
 													</div>
@@ -337,7 +337,7 @@
 												</div>
 												
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">ISBN<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">ISBN<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" type="text" placeholder="ISBN" name="isbn" required="" maxlength="15" pattern="[0-9 .]+">
 													</div>
@@ -387,7 +387,7 @@
 												
 
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Location<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Location<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<select class="custom-select col-12" name="category" required="" style="text-transform: capitalize;">
 															<option selected="">Choose location</option>
@@ -404,7 +404,7 @@
 												</div>
 
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Section<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Section<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<select class="custom-select col-12" name="section" required="">
 															<option selected="">Choose section</option>
