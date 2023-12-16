@@ -132,9 +132,6 @@ include '../phpqrcode/qrlib.php'; ?>
 															<option value="<?php echo $row['type'] ?>"><?php echo $row['type'] ?></option>
 															<option>Student</option>
 															<option>Faculty</option>
-															
-															<!-- additional alumni, staff and visitor -->
-
 														</select>
 													</div>
 												</div>

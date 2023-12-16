@@ -39,8 +39,9 @@ switch ($action) {
         else{
 
             if ($belangel['action']=="OFFLINE") {
-                 mysqli_query($conn, "UPDATE members set action = 'ONLINE' where idnumber = '$idscan' ");
-                 mysqli_query($conn,"INSERT INTO `log` VALUES('','$id','$idscan','$date','$time','','$name','$course','$type')");  ?>
+                 mysqli_query($conn, "UPDATE members set action = 'ONLINE' where idnumber = '$idscan' ") or die("failed");
+                 mysqli_query($conn, "INSERT into `log`(`memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) values ('$id','$idscan','$date','$time','','$name','$course','$type')") or die("failed");
+                ?>
                <!--   //echo 2; // intering in -->
 
                 
@@ -66,8 +67,9 @@ switch ($action) {
                     $lastid = $row['logid'];
                     $lastdate = $row['date'];
 
-                        if ($lastdate <> $date) { 
-                            mysqli_query($conn, "INSERT into `log` values ('','$id','$idscan','$date','$time','','$name','$course','$type')");
+                        if ($lastdate != $date) { 
+                          mysqli_query($conn, "UPDATE members SET action = 'ONLINE' WHERE idnumber = '$idscan'");
+                          mysqli_query($conn, "INSERT into `log`(`memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) values ('$id','$idscan','$date','$time','','$name','$course','$type')") or die("failed");
                             //echo 2; intering in// ?>
                                
                               <div class="alert alert-dismissible">
