@@ -96,7 +96,7 @@
 												<div class="row">
 													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="text" placeholder="Call Number" name="callnum" required="" maxlength="50" value="<?php echo $row['callnum']?>">
+														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50" value="<?php echo $row['callnum']?>">
 													</div>
 												</div>
 
@@ -332,7 +332,7 @@
 												<div class="row">
 													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="text" placeholder="Call Number" name="callnum" required="" maxlength="50">
+														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50">
 													</div>
 												</div>
 
