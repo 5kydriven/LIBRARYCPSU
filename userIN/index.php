@@ -2,11 +2,11 @@
 
 
 date_default_timezone_set('Asia/Manila');
-	 $time = date("h:i A",strtotime("-8 HOURS"));
+	 $time = date("h:i A");
    $date = date("M-d-Y l",strtotime("-8 HOURS"));
     $times = date("A",strtotime("-8 HOURS"));
 
-	if($time == "08:00 PM"){
+	if($time >= "08:00 PM"){
 		$select_log = mysqli_query($conn, "SELECT * FROM `log` WHERE timeout = ''") or die("query failed");
 		$row_log = mysqli_fetch_assoc($select_log);
 		$id_number = $row_log['idnumber'];
