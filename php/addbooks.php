@@ -25,32 +25,36 @@ if (!isset($_FILES['image']['tmp_name'])) {
 					$bookimage=$_FILES["image"]["name"];
 
 
-      	$a = $_POST['title'];
-		$aa = $_POST['authors'];
-		$author1 = $_POST['authors1'];
-		$author2 = $_POST['authors2'];
-		$author3 = $_POST['authors3'];
-		$author4 = $_POST['authors4'];
-
+      	$title = $_POST['title'];
+		$subtitle = $_POST['subTitle'];
+		$author = $_POST['authors'];
+		$callNum = $_POST['callnum'];
+		$state1 = $_POST['state1'];
+		$state2 = $_POST['state2'];
+		$state3 = $_POST['state3'];
+		$sub1 = $_POST['sub1'];					
+		$sub2 = $_POST['sub2'];					
+		$sub3 = $_POST['sub3'];					
+		$dateRecieve = $_POST['dateRes'];
 		$edition = $_POST['edition'];
-
-		$aaa = $_POST['publication'];
-		$aaaa = $_POST['publisher'];
-		$aaaaa = $_POST['isbn'];
-		$aaaaaa = $_POST['copyright'];
-		$aaaaaaa = $_POST['copies'];
-
-		$aaaaaaaa = $_POST['category'];
+		$srcfund = $_POST['srcfund'];
+		$publication = $_POST['publication'];
+		$publisher = $_POST['publisher'];
+		$publisherDate = $_POST['publisherDate'];
+		$isbn = $_POST['isbn'];
+		$copyright = $_POST['copyright'];
+		$copies = $_POST['copies'];
+		$price = $_POST['price'];
+		$bookDealer = $_POST['dealer'];
+		$accountNum = $_POST['accnum'];					
+		$category = $_POST['category'];
 		$section = $_POST['section'];
 		$physical = $_POST['physical'];
+		$series = $_POST['series'];
 		$notes = $_POST['notes'];
-		// $aaaaaaaaa = $_POST['rack'];
-		// $aaaaaaaaaa = $_POST['column'];
-		// $aaaaaaaaaaa = $_POST['row'];
+		
 
-		// $aaaaaaaaaaaa = $_POST['used'];
-
-		$sql = mysqli_query($conn, "SELECT * from books where isbn = $aaaaa ");
+		$sql = mysqli_query($conn, "SELECT * from books where isbn = $isbn ");
 		$row = mysqli_num_rows($sql);
 
 		if ($row > 0) {
@@ -59,7 +63,7 @@ if (!isset($_FILES['image']['tmp_name'])) {
                         echo "<script>window.open('../admin/books.php', '_self')</script>";
 	
 		}else{
-		mysqli_query($conn, "INSERT into books (title,authors,authors1,authors2,authors3,authors4,edition,publication,publisher,isbn,copyright,copies,category,rack,colunn,row,section,physical,notes,bookimage,used) values ('$a','$aa','$author1','$author2','$author3','$author4','$edition','$aaa','$aaaa','$aaaaa','$aaaaaa','$aaaaaaa','$aaaaaaaa','','','','$section','$physical','$notes','$bookimage','')");
+		mysqli_query($conn, "INSERT into books (title,subtitle,callnum,authors,state1,state2,state3,edition,copies,publisher,publisherdate,publication,physical,series,sub1,sub2,sub3,notes,isbn,bookdealer,price,copyright,accnum,dateres,srcfund,category,section,bookimage) values ('$title','$subtitle','$callNum','$author','$state1','$state2','$state3','$edition','$copies','$publisher','$publisherDate','$publication','$physical','$series','$sub1','$sub2','$sub3','$notes','$isbn','$bookDealer','$price','$copyright','$accountNum','$dateRecieve','$srcfund','$category','$section','$bookimage')");
 
 
 						echo "<script>alert('Added successfully :)')</script>";

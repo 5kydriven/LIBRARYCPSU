@@ -1,10 +1,9 @@
 	
 
-	<div class="footer-wrap pd-20 mb-20 card-box">
-				Enhance Library System with SMS Notification for CPSU San Carlos Campus
-			</div>
-		</div>
-	</div>
+	<!-- <div class="footer-wrap pd-20 mb-20 card-box">
+		Enhance Library System with SMS Notification for CPSU San Carlos Campus
+	</div> -->
+		
 	<!-- js -->
 	<script src="../vendors/scripts/core.js"></script>
 	<script src="../vendors/scripts/script.min.js"></script>
