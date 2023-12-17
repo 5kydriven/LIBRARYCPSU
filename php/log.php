@@ -12,7 +12,7 @@ $action = !isset($_GET['id']) ? 'none' : strtolower($_GET['id']);
 switch ($action) {
     case 'id':
 
-    extract($_POST);
+        extract($_POST);
 
         $q_emp = mysqli_query($conn,"SELECT * FROM members WHERE idnumber = '$idscan'") ;
         $belangel=mysqli_fetch_array($q_emp); 
@@ -23,14 +23,11 @@ switch ($action) {
         $type = $belangel['type'];
         $course = $belangel['course']." ".$belangel['yearlevel'];
 
-
-
-
         if ($rows < 1) { ?>
 
                  <div class="alert alert-dismissible"><br><br>
                   <center><i class="icon fa fa-ban text-danger" style="font-size: 5em" ></i></center>
-                  <p style="font-size: 2em;text-align:center; ">No Match found!!!</p>
+                  <p style="font-size: 2em;text-align:center; color: white ">No Match found!!!</p>
                   <embed src="beep.mp3" style="visibility:hidden">
                   
                 </div>
@@ -43,45 +40,33 @@ switch ($action) {
                  mysqli_query($conn, "INSERT into `log`(`memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) values ('$id','$idscan','$date','$time','','$name','$course','$type')") or die("failed");
                 ?>
                <!--   //echo 2; // intering in -->
-
                 
-                 <div class="alert alert-dismissible">
-                  <br><br>
-                  <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
-                  <p style="font-size: 2em;text-align:center; ">Welcome!!!</p>
-                  <embed src="beep.mp3" style="visibility:hidden">
-
-                    <div>
-                      <a href="admin/memprocess.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Borrow</a>
-                       <a href="admin/memreturn.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Return</a>
-                    </div>
-                  
+                <div class="alert alert-dismissible">
+                    <br><br>
+                    <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
+                    <p style="font-size: 2em;text-align:center;  color: white  ">Welcome!!!</p>
+                    <embed src="beep.mp3" style="visibility:hidden">
                 </div>
                      
 
 
             <?php }
             else if ($belangel['action']=="ONLINE") {
-                $sql = mysqli_query($conn, "SELECT * from `log` where idnumber = '$idscan' order by logid desc limit 1  ");
-                $row = mysqli_fetch_array($sql);
+                    $sql = mysqli_query($conn, "SELECT * from `log` where idnumber = '$idscan' order by logid desc limit 1  ");
+                    $row = mysqli_fetch_array($sql);
                     $lastid = $row['logid'];
                     $lastdate = $row['date'];
 
                         if ($lastdate != $date) { 
-                          mysqli_query($conn, "UPDATE members SET action = 'ONLINE' WHERE idnumber = '$idscan'");
-                          mysqli_query($conn, "INSERT into `log`(`memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) values ('$id','$idscan','$date','$time','','$name','$course','$type')") or die("failed");
+                            mysqli_query($conn, "UPDATE members SET action = 'ONLINE' WHERE idnumber = '$idscan'");
+                            mysqli_query($conn, "INSERT into `log`(`memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) values ('$id','$idscan','$date','$time','','$name','$course','$type')") or die("failed");
                             //echo 2; intering in// ?>
                                
                               <div class="alert alert-dismissible">
                                 <br><br>
                               <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
-                              <p style="font-size: 2em;text-align:center; ">Welcome!!!</p>
+                              <p style="font-size: 2em;text-align:center;  color: white ">Welcome!!!</p>
                               <embed src="beep.mp3" style="visibility:hidden">
-                    <div>
-                      <a href="admin/memprocess.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Borrow</a>
-                       <a href="admin/memreturn.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Return</a>
-                    </div>
-                  
                               </div>
                        <?php  }
                         else{
@@ -95,7 +80,7 @@ switch ($action) {
                             <div class="alert alert-dismissible">
                               <br><br>
                               <center><i class="icon fa fa-times text-danger" style="font-size: 5em" ></i></center>
-                              <p style="font-size: 2em;text-align:center; ">Bye!!!</p>
+                              <p style="font-size: 2em;text-align:center; color:white">Bye!!!</p>
                               <embed src="beep.mp3" style="visibility:hidden">
                               
                             </div>
@@ -107,9 +92,9 @@ switch ($action) {
             }
         }
                 
-    break;
+        break;
     default:
-    break;
+        break;
 }
 
 ?>                 
