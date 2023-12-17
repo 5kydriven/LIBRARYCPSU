@@ -1,0 +1,49 @@
+
+.idForm{
+    padding: 20px;
+    width: 100%;
+}
+
+.idForm label{
+    font-size: 25px;
+}
+
+.idForm input{
+    border: 1px solid #b4acac;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 20rem;
+    height: 2.5rem;
+}
+
+.idForm form{
+    text-align: center;
+}
+
+.idForm button{
+    font-size: 15px;
+    padding: 5px 20px;
+    border: 1px solid #0044ff;
+    background: #0044ff;
+    color: white;
+    border-radius: 5px;
+}
+
+.option{
+    border: 1px solid #01b301;
+    background: #01b301;
+    color: white;
+    padding: 7px 20px 7.5px;
+    border-radius: 5px;
+}
+
+.option:hover{
+    color: white;
+    background: #5ed35e;
+    border: 1px solid #5ed35e;
+}
+
+.idForm button:hover{
+    background: #5778d1;
+    border: 1px solid #5778d1;
+}
