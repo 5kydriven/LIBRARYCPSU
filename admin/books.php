@@ -86,6 +86,7 @@
 														<input class="form-control" type="text" placeholder="Title" value="<?php echo $row['title'] ?>" name="title" required="" maxlength="50" >
 													</div>
 												</div>
+
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Authors<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
@@ -140,6 +141,7 @@
 														<input class="form-control" type="text" placeholder="ISBN" name="isbn" required="" value="<?php echo $row['isbn'] ?>" maxlength="15" pattern="[0-9 .]+">
 													</div> 
 												</div>
+												
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Copyright</label>
 													<div class="col-sm-12 col-md-10">
