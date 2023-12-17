@@ -23,33 +23,36 @@ $bookid = $_GET['bookid'];
 					$bookimage=$_FILES["image"]["name"];
 
 
-      	$a = $_POST['title'];
-		$aa = $_POST['authors'];
+					$title = $_POST['title'];
+					$subtitle = $_POST['subTitle'];
+					$author = $_POST['authors'];
+					$callNum = $_POST['callnum'];
+					$state1 = $_POST['state1'];
+					$state2 = $_POST['state2'];
+					$state3 = $_POST['state3'];
+					$sub1 = $_POST['sub1'];					
+					$sub2 = $_POST['sub2'];					
+					$sub3 = $_POST['sub3'];					
+					$dateRecieve = $_POST['dateRes'];
+					$edition = $_POST['edition'];
+					$srcfund = $_POST['srcfund'];
+					$publication = $_POST['publication'];
+					$publisher = $_POST['publisher'];
+					$publisherDate = $_POST['publisherDate'];
+					$isbn = $_POST['isbn'];
+					$copyright = $_POST['copyright'];
+					$copies = $_POST['copies'];
+					$price = $_POST['price'];
+					$bookDealer = $_POST['dealer'];
+					$accountNum = $_POST['accnum'];					
+					$category = $_POST['category'];
+					$section = $_POST['section'];
+					$physical = $_POST['physical'];
+					$series = $_POST['series'];
+					$notes = $_POST['notes'];
+		
 
-		$author1 = $_POST['authors1'];
-		$author2 = $_POST['authors2'];
-		$author3 = $_POST['authors3'];
-		$author4 = $_POST['authors4'];
-
-
-		$edition = $_POST['edition'];
-		$aaa = $_POST['publication'];
-		$aaaa = $_POST['publisher'];
-		$aaaaa = $_POST['isbn'];
-		$aaaaaa = $_POST['copyright'];
-		$aaaaaaa = $_POST['copies'];
-
-		$aaaaaaaa = $_POST['category'];
-		$section = $_POST['section'];
-		$physical = $_POST['physical'];
-		$notes = $_POST['notes'];
-		// $aaaaaaaaa = $_POST['rack'];
-		// $aaaaaaaaaa = $_POST['column'];
-		// $aaaaaaaaaaa = $_POST['row'];
-
-		// $aaaaaaaaaaaa = $_POST['used'];
-
-		$sql = mysqli_query($conn, "SELECT * from books where isbn = $aaaaa ");
+		$sql = mysqli_query($conn, "SELECT * from books where isbn = $isbn ");
 		$row = mysqli_num_rows($sql);
 
 		if ($row > 1) {
@@ -58,7 +61,7 @@ $bookid = $_GET['bookid'];
                         echo "<script>window.open('../admin/books.php', '_self')</script>";
 	
 		}else{
-		mysqli_query($conn, "UPDATE books set title = '$a', authors ='$aa', authors1 ='$author1', authors2 ='$author2', authors3 ='$author3', authors4 ='$author4', edition = '$edition', publication = '$aaa', publisher = '$aaaa', isbn = '$aaaaa', copyright = '$aaaaaa', copies = '$aaaaaaa', category = '$aaaaaaaa', rack = '', colunn = '', row = '',section = '$section',physical = '$physical', notes ='$notes', bookimage = '$bookimage', used = '' where bookid = '$bookid'");
+		mysqli_query($conn, "UPDATE books set title = '$title', subtitle='$subtitle',callnum = '$callNum', authors ='$author', state1 = '$state1', state2 = '$state2', state3 = '$state3', edition = '$edition', copies = '$copies', publisher = '$publisher', publisherdate = '$publisherDate', publication = '$publication', physical = '$physical', series = '$series', sub1 = '$sub1', sub2 = '$sub2', sub3 = '$sub3', notes ='$notes', isbn = '$isbn', bookdealer = '$bookDealer', price = '$price', copyright = '$copyright', accnum = '$accountNum', dateres = '$dateRecieve', srcfund = '$srcfund', category = '$category', section = '$section', bookimage = '$bookimage'  where bookid = '$bookid'");
 
 
 						echo "<script>alert('Updated successfully :)')</script>";

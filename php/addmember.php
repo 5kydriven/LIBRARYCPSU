@@ -4,27 +4,26 @@ include 'db.php';
 
 	if (isset($_POST['submit'])) {
 
-		$a = $_POST['idnumber'];
-		$aa = $_POST['fullname'];
-		$aaa = $_POST['number'];
-		$aaaa = $_POST['gender'];
-		$aaaaa = $_POST['type'];
+		$libId = $_POST['idnumber'];
+		$name = $_POST['fullname'];
+		$mobileNo = $_POST['number'];
+		$gender = $_POST['gender'];
+		$type = $_POST['type'];
+		$address = $_POST['address'];
+		$guardian = $_POST['guardian'];
 
 
-		if ($aaaaa == "Faculty") {
-
-			$aaaaaa = '';
-		$aaaaaaa = '';
-			
+		if ($type == "Student") {
+			$yearLvl = $_POST['level'];
+			$course = $_POST['course'];
 		}else{
-
-			$aaaaaa = $_POST['level'];
-		$aaaaaaa = $_POST['course'];
+			$yearLvl = '';
+			$course = '';
 		}
 		
 
 
-        $result = mysqli_query($conn, "SELECT * from members where idnumber = '$a'");
+        $result = mysqli_query($conn, "SELECT * from members where idnumber = '$libId'");
         $row = mysqli_num_rows($result);
 
             if ($row>0) {
@@ -34,7 +33,9 @@ include 'db.php';
 
             }else{
 
-            	mysqli_query($conn, "INSERT into members (idnumber,fullname,number,gender,type,yearlevel,course,action) values ('$a','$aa','$aaa','$aaaa','$aaaaa','$aaaaaa','$aaaaaaa','OFFLINE')");
+            	mysqli_query($conn, "INSERT into members (idnumber,fullname,number,gender,type,yearlevel,course,address,guardian,action) 
+									values ('$libId','$name','$mobileNo','$gender','$type','$yearLvl','$course','$address','$guardian','OFFLINE')"
+							);
 
 
 						echo "<script>alert('Added successfully :)')</script>";

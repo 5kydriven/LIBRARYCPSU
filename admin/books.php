@@ -37,7 +37,7 @@
 									$sql = mysqli_query($conn, "SELECT * from books");
 									while ($row = mysqli_fetch_array($sql)) { ?>
 
-										<tr style="overflow: scroll;width: 520px;text-transform: capitalize;">
+										<tr style="overflow: scroll; width: 520px; text-transform: capitalize;">
  
 											<td><?php 
 
@@ -52,11 +52,11 @@
 											</td>
 
 											<td><?php echo $row['section'] ?></td>
-											<!-- <td><?php //echo $row['rack']." , ".$row['colunn']." and ".$row['row'] ?></td> -->
+											
 
 											<td><?php echo $row['title'] ?></td>
 
-											<td><?php echo $row['authors'].", ".$row['authors1'].", ".$row['authors2'].", ".$row['authors3'].", ".$row['authors4'] ?></td>
+											<td><?php echo $row['authors'] ?></td>
 											<td><?php echo $row['publication'] ?></td>
 											<td><?php echo $row['publisher'] ?></td>
 											<td><?php echo $row['isbn'] ?></td>
@@ -68,12 +68,11 @@
 											<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
 											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a></td>
 										</tr>
-
-
-
 							<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered">
-									<div class="modal-content">
+
+<!-- update book -->
+								<div class="modal-dialog modal-dialog-centered modal-lg">
+									<div class="modal-content container-fluid">
 										<div class="modal-header">
 											<h4 class="modal-title" id="myLargeModalLabel">Update Book</h4>
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -86,33 +85,45 @@
 														<input class="form-control" type="text" placeholder="Title" value="<?php echo $row['title'] ?>" name="title" required="" maxlength="50" >
 													</div>
 												</div>
+
+												<div class="row">
+													<label class="col-sm-12 col-md col-form-label">Sub Title</label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" type="text" placeholder="Sub Title" name="subTitle" maxlength="50" value="<?php echo $row['subtitle']?>">
+													</div>
+												</div>
+
+												<div class="row">
+													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50" value="<?php echo $row['callnum']?>">
+													</div>
+												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Authors<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Author<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" placeholder="Authors" type="text" name="authors"  value="<?php echo $row['authors'] ?>">
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 2" type="text" name="authors1"  value="<?php echo $row['authors1'] ?>">
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 3" type="text" name="authors2"  value="<?php echo $row['authors2'] ?>">
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 4" type="text" name="authors3"  value="<?php echo $row['authors3'] ?>">
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 5" type="text" name="authors4"  value="<?php echo $row['authors4'] ?>">
-													</div><br>
-
+													</div>										
 												</div>
+
+												<div class="form-group row">													
+													<label class="col-sm-12 col-md-12 col-form-label">Other Statement of Responsibility</label>													
+															<label class="col col-form-label "><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10 mb-1">
+																<input class="form-control" placeholder="1. " type="text" name="state1" value="<?php echo $row['state1']?>">
+															</div>
+													
+															<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10 mb-1">
+																<input class="form-control" placeholder="2. " type="text" name="state2" value="<?php echo $row['state2']?>">
+															</div>
+													
+															<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10">
+																<input class="form-control" placeholder="3. " type="text" name="state3" value="<?php echo $row['state3']?>">
+															</div>
+												</div>												
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Edition</label>
@@ -121,6 +132,22 @@
 													</div>
 												</div>
 
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1.5em;">*</i></label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Copies" type="number" name="copies" required="" value="<?php echo $row['copies'] ?>">
+													</div>
+												</div>												
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
+													<div class="col-sm-12 col-md-7">
+														<input class="form-control" type="text" placeholder="Publisher" name="publisher" value="<?php echo $row['publisher'] ?>">
+													</div>
+													<div class="col-sm col">
+														<input class="form-control" type="date" name="publisherDate" value="<?php echo $row['publisherdate']?>">
+													</div>
+												</div>
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Place of publication</label>
@@ -128,30 +155,94 @@
 														<input class="form-control" placeholder="Place of publication" type="text" name="publication" value="<?php echo $row['publication'] ?>">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
+													<label class="col-sm-12 col-md-2 col-form-label">Physical description</label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" placeholder="Publisher" name="publisher" value="<?php echo $row['publisher'] ?>">
+														<input class="form-control" type="text" name="physical" value="<?php echo $row['physical'] ?>">
+													</div>
+												</div>					
+												
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Series</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Series" type="text" name="series" value="<?php echo $row['series']?>">
 													</div>
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="1. " type="text" name="sub1" value="<?php echo $row['sub1']?>">
+													</div>
+
+													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="2. " type="text" name="sub2" value="<?php echo $row['sub2']?>">
+													</div>
+
+													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="3. " type="text" name="sub3" value="<?php echo $row['sub3']?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Note</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" type="text" name="notes" value="<?php echo $row['notes'] ?>">
+													</div>
+												</div>
+									
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">ISBN<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" type="text" placeholder="ISBN" name="isbn" required="" value="<?php echo $row['isbn'] ?>" maxlength="15" pattern="[0-9 .]+">
 													</div> 
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Book Dealer</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Book Dealer" type="text" name="dealer" value="<?php echo $row['bookdealer']?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Price</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="price" type="number" name="price" value="<?php echo $row['price']?>">
+													</div>
+												</div>
+												
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Copyright</label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" placeholder="Copyright" type="text" name="copyright" value="<?php echo $row['copyright'] ?>">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md col-form-label">Account No.</label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Copies" type="number" name="copies" required="" value="<?php echo $row['copies'] ?>">
+														<input class="form-control" placeholder="Account Number" type="number" name="accnum" value="<?php echo $row['accnum']?>">
 													</div>
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-auto col-form-label">Date Recieved<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" type="date" name="dateRes" required="" value="<?php echo $row['dateres']?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-auto col-form-label">Source of Fund</label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" placeholder="Source of Fund" type="text" name="srcfund" value="<?php echo $row['srcfund']?>">
+													</div>
+												</div>
+												
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Location<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
@@ -168,19 +259,7 @@
 														</select>
 													</div>
 												</div>
-
-													<!-- <div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Used for<i style="color:red;font-size:1.5em;">*</i></label>
-													<div class="col-sm-12 col-md-10">
-														<select class="custom-select col-12" name="used" required="">
-															<option value="<?php //echo $row['used'] ?>"><?php echo $row['used'] ?></option>
-															
-															<option value="other">Other</option>
-															<option value="library">Libray only</option>
-														</select>
-													</div>
-												</div>
- -->
+											
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Section<i style="color:red;font-size:1.5em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
@@ -199,33 +278,9 @@
 													</div>
 												</div>
 
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Physical description</label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" name="physical" value="<?php echo $row['physical'] ?>">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Notes</label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" name="notes" value="<?php echo $row['notes'] ?>">
-													</div>
-												</div>
-
-												<!-- <div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Rack #, Column & Row<i style="color:red;font-size:1.5em;">*</i></label>
-													<div class="col-md-4">
-														<input class="form-control" type="number" name="rack" placeholder="Rack #" required="" value="<?php// echo $row['rack'] ?>">
-													</div>
-													<div class="col-md-3">
-														<input class="form-control" type="number" name="column" placeholder="Column" required="" value="<?php //echo $row['colunn'] ?>">
-													</div>
-													<div class="col-md-3">
-														<input class="form-control" type="number" name="row" placeholder="Row" required="" value="<?php// echo $row['row'] ?>">
-													</div>
-												</div>
- -->
-
+												
+												
+							
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Book Image</label>
 													<div class="col-sm-12 col-md-10">
@@ -241,65 +296,74 @@
 									</div>
 								</div>
 							</div>
-
-									<?php
-								}
-
-								?>
-
-								
-								
+								<?php } ?>
+		
 							</tbody>
 						</table>
 					</div>
 				</div>
 
 
-
-					<div class="modal fade" id="addbook" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered">
-									<div class="modal-content">
+<!-- Add book -->
+					<div class="modal fade " id="addbook" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered modal-lg">
+									<div class="modal-content container-fluid">
 										<div class="modal-header">
 											<h4 class="modal-title" id="myLargeModalLabel">Add Book</h4>
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 										</div>
 										<div class="modal-body">
 											<form method="POST" action="../php/addbooks.php" enctype="multipart/form-data">
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Title<i style="color:red;font-size:1.5em;">*</i></label>
-													<div class="col-sm-12 col-md-10">
+												
+												<div class="row">
+													<label class="col-sm-12 col-md col-form-label">Title<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
 														<input class="form-control" type="text" placeholder="Title" name="title" required="" maxlength="50">
 													</div>
 												</div>
 
-
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Authors<i style="color:red;font-size:1.5em;">*</i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 1" type="text" name="authors" >
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 2" type="text" name="authors1" >
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 3" type="text" name="authors2" >
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 4" type="text" name="authors3" >
-													</div><br><br>
-
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Author 5" type="text" name="authors4" >
-													</div><br>
-
+												<div class="row">
+													<label class="col-sm-12 col-md col-form-label">Sub Title</label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" type="text" placeholder="Sub Title" name="subTitle" maxlength="50">
+													</div>
 												</div>
+
+												<div class="row">
+													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50">
+													</div>
+												</div>
+
+												<div class="row">
+													<label class="col-sm-12 col-md col-form-label">Author<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="Author" type="text" name="authors" >
+													</div><br><br>
+													
+												</div>
+
+												<div class="form-group row">													
+													<label class="col-sm-12 col-md-12 col-form-label">Other Statement of Responsibility</label>
+
+													
+															<label class="col col-form-label "><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10 mb-1">
+																<input class="form-control" placeholder="1. " type="text" name="state1" >
+															</div>
+													
+															<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10 mb-1">
+																<input class="form-control" placeholder="2. " type="text" name="state2" >
+															</div>
+													
+															<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+															<div class="col-sm-12 col-md-10">
+																<input class="form-control" placeholder="3. " type="text" name="state3" >
+															</div>
+
+												</div>														
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Edition</label>
@@ -309,37 +373,121 @@
 												</div>
 
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Place of publication</label>
+													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Copies" type="number" name="copies" required="">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
+													<div class="col-sm-12 col-md-7">
+														<input class="form-control" type="text" placeholder="Publisher" name="publisher">
+													</div>
+													
+													<div class="col-sm col">
+														<input class="form-control" type="date" name="publisherDate">
+													</div>
+												</div>												
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-auto col-form-label">Place of publication</label>
+													<div class="col-sm-12 col-md">
 														<input class="form-control" placeholder="Place of publication" type="text" name="publication">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
+													<label class="col-sm-12 col-md-auto col-form-label">Physical description</label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" placeholder="Physical description" type="text" name="physical">
+													</div>
+												</div>												
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Series</label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" placeholder="Publisher" name="publisher">
+														<input class="form-control" placeholder="Series" type="text" name="series">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">ISBN<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="1. " type="text" name="sub1" >
+													</div>
+
+													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="2. " type="text" name="sub2" >
+													</div>
+
+													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
+													<div class="col-sm-12 col-md-10 mb-1">
+														<input class="form-control" placeholder="3. " type="text" name="sub3" >
+													</div>
+
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Note</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" type="text" placeholder="notes" name="notes">
+													</div>
+												</div>
+												
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">ISBN<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" type="text" placeholder="ISBN" name="isbn" required="" maxlength="15" pattern="[0-9 .]+">
 													</div>
+												</div>												
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Book Dealer</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="Book Dealer" type="text" name="dealer">
+													</div>
 												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Price</label>
+													<div class="col-sm-12 col-md-10">
+														<input class="form-control" placeholder="price" type="number" name="price">
+													</div>
+												</div>
+
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Copyright</label>
 													<div class="col-sm-12 col-md-10">
 														<input class="form-control" placeholder="Copyright" type="text" name="copyright">
 													</div>
 												</div>
+												
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Copies<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md col-form-label">Account No.</label>
 													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Copies" type="number" name="copies" required="">
+														<input class="form-control" placeholder="Account Number" type="number" name="accnum">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Location<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-auto col-form-label">Date Recieved<i style="color:red;font-size:1em;">*</i></label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" type="date" name="dateRes" required="">
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-auto col-form-label">Source of Fund</label>
+													<div class="col-sm-12 col-md">
+														<input class="form-control" placeholder="Source of Fund" type="text" name="srcfund">
+													</div>
+												</div>
+												
+
+												<div class="form-group row">
+													<label class="col-sm-12 col-md-2 col-form-label">Location<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<select class="custom-select col-12" name="category" required="" style="text-transform: capitalize;">
 															<option selected="">Choose location</option>
@@ -355,21 +503,8 @@
 													</div>
 												</div>
 
-												<!-- <div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Used for<i style="color:red;font-size:1.5em;">*</i></label>
-													<div class="col-sm-12 col-md-10">
-														<select class="custom-select col-12" name="used" required="">
-															<option selected="">Choose used for</option>
-															<option value="other">Other</option>
-															<option value="library">Libray only</option>
-
-														</select>
-													</div>
-												</div>
- -->
-
 												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Section<i style="color:red;font-size:1.5em;">*</i></label>
+													<label class="col-sm-12 col-md-2 col-form-label">Section<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10">
 														<select class="custom-select col-12" name="section" required="">
 															<option selected="">Choose section</option>
@@ -384,40 +519,7 @@
 
 														</select>
 													</div>
-												</div>
-
-<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Physical description</label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" placeholder="Physical description" type="text" name="physical">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Notes</label>
-													<div class="col-sm-12 col-md-10">
-														<input class="form-control" type="text" placeholder="notes" name="notes">
-													</div>
-												</div>
-
-
-
-
-
-												<!-- <div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label">Rack #, Column & Row<i style="color:red;font-size:1.5em;">*</i></label>
-													<div class="col-md-4">
-														<input class="form-control" type="number" name="rack" placeholder="Rack #" >
-													</div>
-													<div class="col-md-3">
-														<input class="form-control" type="number" name="column" placeholder="Column" >
-													</div>
-													<div class="col-md-3">
-														<input class="form-control" type="number" name="row" placeholder="Row" >
-													</div>
-												</div>
-
- -->
-
+												</div>																								
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Book Image</label>
