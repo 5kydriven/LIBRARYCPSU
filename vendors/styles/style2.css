@@ -1,3 +1,10 @@
+.label{
+    display: flex;
+    justify-content: center;
+}
+.label{
+    font-size: 15px;
+}
 
 .idForm{
     padding: 20px;
@@ -5,24 +12,26 @@
 }
 
 .idForm label{
-    font-size: 25px;
+    font-size: 20px;
 }
 
-.idForm input{
+form input{
     border: 1px solid #b4acac;
-    font-size: 18px;
+    font-size: 15px;
     border-radius: 5px;
-    width: 20rem;
+    width: 17rem;
     height: 2.5rem;
 }
 
-.idForm form{
-    text-align: center;
-}
+form{
+    display: flex;
+    justify-content: space-between;
+} 
 
-.idForm button{
+form button{
     font-size: 15px;
-    padding: 5px 20px;
+    height: 40px;
+    width: 5rem;
     border: 1px solid #0044ff;
     background: #0044ff;
     color: white;

@@ -43,6 +43,7 @@ date_default_timezone_set('Asia/Manila');
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
 </head>
 <body class="login-page" style="background:url(../upload/a.jpg);">
@@ -53,7 +54,6 @@ date_default_timezone_set('Asia/Manila');
 					<img src="../upload/logo.png" style="height: 3.4em;width: 3.4em">  <h3 style="margin-left: 0.5em">   Enhance Library System</h3>
 				</a>
 			</div>
-			<a href="input_id.php" class="option">Enter ID</a>
 		</div>
 	</div>
 
@@ -61,14 +61,16 @@ date_default_timezone_set('Asia/Manila');
 	<div class="login-wrap">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-2">
-				</div>
+				<div class="col-md-2" ></div>
 				<div class="col-md-4" style="background-color: #f9f9f9" style="margin-left: 30px">
 					<div id="qr-reader" style="width:calc(100%);"></div>
                     <div id="qr-reader-results"></div>
-					
+					<div class="label"><hr>OR<hr></div>
+					<form id="input-form"  method="POST">
+						<input type="text" placeholder="ex. (CPSU-LRC-0000)" name="idNum" id="id-number"><br><br>
+						<button name="submit" >Submit</button>
+					</form>
 				</div>
-				
 				<div class="col-md-4">
 					<p id="data" style="display: none"></p> 
 				</div>
@@ -119,6 +121,29 @@ date_default_timezone_set('Asia/Manila');
 			var html5QrcodeScanner = new Html5QrcodeScanner(
 				"qr-reader", { fps: 10, qrbox: 160 });
 			html5QrcodeScanner.render(onScanSuccess);
+		});
+
+		$(document).ready(function(){
+			$("#input-form").submit(function(event) {
+				event.preventDefault();
+				var idNum = $("#id-number").val();
+				$.ajax({
+						url:'../php/log.php?id=id',
+						method:'POST',
+						data:{
+							idscan:idNum
+						},
+						error:err=>{
+							console.log(err)
+							alert_toast('An Error Occured.');
+						},
+						success:function(data){
+							$('#data').html(data);
+							document.getElementById('data').style.display = 'block';
+
+						}
+					})
+			});
 		});
 	</script> 
 	<script src="../vendors/scripts/core.js"></script>
