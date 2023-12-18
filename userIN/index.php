@@ -1,5 +1,5 @@
 <?php
-
+include "../php/db.php";
 
 date_default_timezone_set('Asia/Manila');
 	 $time = date("h:i A");
@@ -10,7 +10,7 @@ date_default_timezone_set('Asia/Manila');
 		$select_log = mysqli_query($conn, "SELECT * FROM `log` WHERE timeout = ''") or die("query failed");
 		$row_log = mysqli_fetch_assoc($select_log);
 		$id_number = $row_log['idnumber'];
-		$insert_to_log = mysqli_query($conn, "UPDATE `log` SET `timeout` = '$time' WHERE idnumber = '$id_number' ")or die("update failed");
+		$insert_to_log = mysqli_query($conn, "UPDATE  `log` SET `timeout` = '$time' WHERE idnumber = '$id_number' ")or die("update failed");
 
 	} else{
 
@@ -113,7 +113,7 @@ date_default_timezone_set('Asia/Manila');
 						success:function(data){
 							$('#data').html(data);
 							document.getElementById('data').style.display = 'block';
-
+							setTimeout(txt, 3000)
 						}
 					})
 				}
@@ -140,11 +140,16 @@ date_default_timezone_set('Asia/Manila');
 						success:function(data){
 							$('#data').html(data);
 							document.getElementById('data').style.display = 'block';
-
+							setTimeout(txt, 3000);
 						}
 					})
 			});
 		});
+
+		function txt(){
+			document.getElementById('data').style.display = 'none';
+			document.getElementById('id-number').value = '';
+			};
 	</script> 
 	<script src="../vendors/scripts/core.js"></script>
 	<script src="../vendors/scripts/script.min.js"></script>
