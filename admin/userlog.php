@@ -7,7 +7,7 @@
 			
 				<div class="card-box mb-30">
 					<div class="pd-20">
-						<h4 class="text-blue h4">User's Log Sheet<a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
+						<h4 class="text-blue h4">User's Log Sheet<button class="btn btn-success ml-1" style="float: right">Excel</button><a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
 					</div>
 					<div class="pb-20" id="print">
 						<table class="data-table table stripe hover nowrap">
