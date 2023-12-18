@@ -14,8 +14,11 @@
 	<script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<script src="../src/plugins/sweetalert2/sweet-alert.init.js"></script>
 	
+	<!-- Qr code packages -->
 	<script src="../js/html5-qrcode.js"></script>
 	<script src="../js/html5-qrcode-scanner.js"></script>
+
+	<!-- datatables packages -->
 	<script src="../src/plugins/datatables/js/jquery.dataTables.min.js"></script>
 	<script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 	<script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
