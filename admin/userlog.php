@@ -10,7 +10,7 @@
 						<h4 class="text-blue h4">User's Log Sheet<button class="btn btn-success ml-1" style="float: right">Excel</button><a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
 					</div>
 					<div class="pb-20" id="print">
-						<table class="data-table table stripe hover nowrap">
+						<table class="data-table table hover stripe nowrap" id="example">
 							<thead>
 								<tr>
 									<th>Date (Y-M-D)</th>
@@ -51,6 +51,8 @@
 
 
 		    <script>
+
+
     function printContent(el) {
         var restorepage = document.body.innerHTML;
         var printcontent = document.getElementById(el).innerHTML;
@@ -58,4 +60,6 @@
         window.print();
         document.body.innerHTML = restorepage;
     }
+
+	
     </script>

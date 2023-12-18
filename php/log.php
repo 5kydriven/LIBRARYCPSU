@@ -3,7 +3,7 @@
 error_reporting(0);
 date_default_timezone_set('Asia/Manila');
     $time = date("h:i A");
-    $date = date("M-d-Y l",strtotime("-8 HOURS"));
+    $date = date("d-m-Y",strtotime("-8 HOURS"));
     $times = date("A",strtotime("-8 HOURS"));
 
 include 'db.php';

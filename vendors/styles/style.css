@@ -4153,3 +4153,21 @@ body.IE .register-page-wrap .container {
     display: none;
   }
 }
+.brand-logo a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.brand-logo {
+  width: 300px;
+}
+
+.sidebar-light .sidebar-menu .dropdown-toggle, .sidebar-light .sidebar-menu .submenu li a {
+  text-decoration: none;
+}
+
+.user-info-dropdown .dropdown-toggle {
+  text-decoration: none;
+}

@@ -38,7 +38,7 @@ date_default_timezone_set('Asia/Manila');
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="">
-					<img src="upload/logo.png" style="height: 3.4em;width: 3.4em">  <h3 style="margin-left: 0.5em">   Enhance Library System</h3>
+					<img src="upload/logo.png" style="height: 1.4em;width: 1.4em">  <h3 style="margin-left: 0.5em">   Enhance Library System</h3>
 				</a>
 			</div>
 			<div class="login-menu">
