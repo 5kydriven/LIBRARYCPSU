@@ -1,6 +1,6 @@
 				
 <?php include 'header.php'; ?>
-
+	<script src="../js/table2excel-books.js"></script>
 	<div class="mobile-menu-overlay"></div>
 
 	<div class="main-container">
@@ -9,7 +9,7 @@
 				<div class="card-box mb-30">
 					<div class="pd-20">
 						<h4 class="text-blue h4">Books</h4>
-						<a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
+						<a href="" class="btn btn-success ml-1" style="float: right; margin-top: -1.8em; padding: 5px 20px" id="2excel">Excel</a><a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
 					</div>
 					<div class="pb-20">
 						<table class="data-table table nowrap">
@@ -536,10 +536,16 @@
 									</div>
 								</div>
 							</div>
+		<script>
+			var table2excel = new Table2Excel();
 
+				document.getElementById('2excel').addEventListener('click', function() {
+				  table2excel.export(document.querySelectorAll('table'));
+				});
+		</script>
 		
 
 		<?php include 'footer.php';  ?>
-
+		
 
 
