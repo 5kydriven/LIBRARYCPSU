@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 include "db.php";
 require '../PHPExcel-1.8/Classes/PHPExcel.php';
 
@@ -12,7 +10,7 @@ function filterData(&$str) {
 }
 
 if (isset($_GET['log'])) {
-    $filename = "user_log" . date('ymd') . ".xls";
+    $filename = "user_log" . ".xls";
 
     $fields = array('DATE', 'TIME IN', 'TIME OUT', 'NAME', 'COLLEGE/YEAR', 'TYPE');
 
@@ -91,6 +89,42 @@ if (isset($_GET['log'])) {
 
 } elseif (isset($_GET['borrow'])) {
 
-} else {
+    $filename = "Borrowers" . ".xls";
 
+    $fields = array('ISBN', 'BORROWERS NAME', 'TITLE', 'DATE BORROWED', 'DUE DATE');
+
+    $objPHPExcel = new PHPExcel();
+    $objPHPExcel->setActiveSheetIndex(0);
+    $sheet = $objPHPExcel->getActiveSheet();
+
+    $sheet->fromArray([$fields], null, 'A1');
+
+    $query = mysqli_query($conn, "SELECT * from bookstatus LEFT JOIN books ON bookstatus.booksid = books.bookid LEFT JOIN members ON bookstatus.memid = members.memid where bookstatus.status = 'borrowed'") or die("query failed");
+
+    if (mysqli_num_rows($query) > 0) {
+        $row = 2;
+        while ($data = mysqli_fetch_assoc($query)) {
+            $row_data = array($data['isbn'], $data['fullname'], $data['title'], $data['borrowed'], $data['duedate']);
+            array_walk($row_data, 'filterData');
+            $sheet->fromArray([$row_data], null, 'A' . $row);
+            $row++;
+        }
+
+        // Autofit columns
+        foreach (range('A', 'E') as $col) {
+            $sheet->getColumnDimension($col)->setAutoSize(true);
+        }
+
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        header("Content-Type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=\"$filename\"");
+        header("Cache-Control: max-age=0");
+
+        $objWriter->save('php://output');
+        exit;
+    } else {
+        $excel_data = 'No records Found';
+    }
+} else {
+    $excel_data = "erro";
 }

@@ -8,7 +8,7 @@
 			
 				<div class="card-box mb-30">
 					<div class="pd-20">
-						<h4 class="text-blue h4">Borrowed Books <a href="" class="btn btn-success ml-1" style="float: right" id="2excel">Excel</a> <a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
+						<h4 class="text-blue h4">Borrowed Books <a href="../php/download_excel.php?borrow" class="btn btn-success ml-1" style="float: right" id="2excel">Excel</a> <a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
 
 					</div>
 					<div class="pb-20" id="print">
@@ -64,11 +64,11 @@
         document.body.innerHTML = restorepage;
     }
 
-	var table2excel = new Table2Excel();
+	// var table2excel = new Table2Excel();
 
-      document.getElementById('2excel').addEventListener('click', function() {
-        table2excel.export(document.querySelectorAll('table'));
-      });
+    //   document.getElementById('2excel').addEventListener('click', function() {
+    //     table2excel.export(document.querySelectorAll('table'));
+    //   });
     </script>
 
 
