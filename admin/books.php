@@ -11,6 +11,7 @@
 						<h4 class="text-blue h4">Books</h4>
 						<a href="../php/download_excel.php?books" class="btn btn-success ml-1" style="float: right; margin-top: -1.8em; padding: 5px 20px" id="2excel">Excel</a><a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
 					</div>
+
 					<div class="pb-20">
 						<table class="data-table table nowrap">
 							<thead>
