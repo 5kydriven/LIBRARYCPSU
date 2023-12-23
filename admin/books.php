@@ -9,36 +9,29 @@
 				<div class="card-box mb-30">
 					<div class="pd-20">
 						<h4 class="text-blue h4">Books</h4>
-						<a href="../php/download_excel.php?books" class="btn btn-success ml-1" style="float: right; margin-top: -1.8em; padding: 5px 20px" id="2excel">Excel</a><a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
+						<a href="../php/download_excel.php?books" class="pull-right btn btn-success btn-sm ml-1" style="margin-top: -2em;  padding: 4px 20px" id="2excel">Excel</a>
+						<a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
 					</div>
 
 					<div class="pb-20">
-						<table class="data-table table nowrap">
-							<thead>
+						<table class="table table-hover ">
+							<thead class="table-light">
 								<tr>
-									<th>Book Image</th>
-									<th>Section</th>
 									<th>Title</th>
 									<th>Authors</th>
 									<th>Publication</th>
 									<th>Publisher</th>
-									<th>ISBN</th>
-									<th>Copyright</th>
-									<th>Copies</th>
-									<th>Physical Description</th>
-									<th>Notes</th>
-									<th>Location</th>
-									<th class="datatable-nosort">Action</th>
+									<th>Section</th>												
 								</tr>
 							</thead>
-							<tbody>
+							<tbody class="table-group-divider accordion" id="accordionExample">
 
 								<?php
 
 									$sql = mysqli_query($conn, "SELECT * from books");
 									while ($row = mysqli_fetch_array($sql)) { ?>
 
-										<tr style="overflow: scroll; width: 520px; text-transform: capitalize;">
+										<tr style="overflow: scroll; width: 520px; text-transform: capitalize;" data-bs-toggle="collapse" data-bs-target="#accordion_<?php echo $row['bookid']?>" class=" accordion-item" aria-expanded="true" aria-controls="accordion_<?php echo $row['bookid']?>">
  
 											<td><?php 
 
@@ -48,29 +41,35 @@
 
 											echo '<img class="img" src="'."../upload/".$row['bookimage'].'">' ;
 											}
+
+											echo $row['title']
 											?>
 												
 											</td>
-
-											<td><?php echo $row['section'] ?></td>
 											
-
-											<td><?php echo $row['title'] ?></td>
-
 											<td><?php echo $row['authors'] ?></td>
 											<td><?php echo $row['publication'] ?></td>
 											<td><?php echo $row['publisher'] ?></td>
-											<td><?php echo $row['isbn'] ?></td>
-											<td><?php echo $row['copyright'] ?></td>
-											<td><?php echo $row['copies'] ?></td>
-											<td><?php echo $row['physical'] ?></td>
-											<td><?php echo $row['notes'] ?></td>
-											<td><?php echo $row['category'] ?></td>
-											<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
-											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a></td>
+											<td><?php echo $row['section'] ?></td>
 										</tr>
-							<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+										<tr id="accordion_<?php echo $row['bookid']?>" class="collapse accordion-collapse" data-bs-parent="#accordionExample">
+											<td colspan="5">
+												<div>
+													<label>
+														subtitle
+													</label>
+													<?php echo $row['subtitle']?>
+												</div>
+												<div>
+													<label>callnumber</label>
+													<?php echo $row['callnum']?>
+												</div>
+												<a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
+											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a>
+											</td>											
+										</tr>
 
+										<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 <!-- update book -->
 								<div class="modal-dialog modal-dialog-centered modal-lg">
 									<div class="modal-content container-fluid">
@@ -142,7 +141,7 @@
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
-													<div class="col-sm-12 col-md-7">
+													<div class="col-sm-12 col-md-6">
 														<input class="form-control" type="text" placeholder="Publisher" name="publisher" value="<?php echo $row['publisher'] ?>">
 													</div>
 													<div class="col-sm col">
@@ -295,7 +294,7 @@
 											</form>
 										</div>
 									</div>
-								</div>
+								</div>	
 							</div>
 								<?php } ?>
 		
@@ -537,9 +536,6 @@
 									</div>
 								</div>
 							</div>
-		<script>
-			
-		</script>
 		
 
 		<?php include 'footer.php';  ?>
