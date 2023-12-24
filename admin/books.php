@@ -14,7 +14,7 @@
 					</div>
 
 					<div class="pb-20">
-						<table class="table table-hover ">
+						<table class="table table-hover">
 							<thead class="table-light">
 								<tr>
 									<th>Title</th>
@@ -31,15 +31,15 @@
 									$sql = mysqli_query($conn, "SELECT * from books");
 									while ($row = mysqli_fetch_array($sql)) { ?>
 
-										<tr style="overflow: scroll; width: 520px; text-transform: capitalize;" data-bs-toggle="collapse" data-bs-target="#accordion_<?php echo $row['bookid']?>" class=" accordion-item" aria-expanded="true" aria-controls="accordion_<?php echo $row['bookid']?>">
+										<tr style="overflow: scroll; width: 520px; text-transform: capitalize; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#accordion_<?php echo $row['bookid']?>" class="accordion-item hover" aria-expanded="true" aria-controls="accordion_<?php echo $row['bookid']?>">
  
-											<td><?php 
+											<td style="vertical-align: bottom;"><?php 
 
 											if ($row['bookimage']=="") {
-												echo "<span class='micon dw dw-book' style='font-size:2em;color:limegreen'></span>";
+												echo "<span class='micon dw dw-book' style='font-size:3em;color:limegreen'></span>";
 											}else{
 
-											echo '<img class="img" src="'."../upload/".$row['bookimage'].'">' ;
+											echo '<img class="img" style="margin-right: 0.5rem;" src="'."../upload/".$row['bookimage'].'">' ;
 											}
 
 											echo $row['title']
@@ -52,20 +52,89 @@
 											<td><?php echo $row['publisher'] ?></td>
 											<td><?php echo $row['section'] ?></td>
 										</tr>
-										<tr id="accordion_<?php echo $row['bookid']?>" class="collapse accordion-collapse" data-bs-parent="#accordionExample">
+										<tr id="accordion_<?php echo $row['bookid']?>" class="collapse accordion-collapse" data-bs-parent="#accordionExample" >
 											<td colspan="5">
-												<div>
+													<table class="table table-bordered table-sm table-striped">
+														<thead>
+															<tr>
+																<th>Subtitle</th>
+																<th>Edition</th>
+																<th>Series</th>
+																<th>ISBN</th>
+																<th>Copyright</th>
+																<th colspan="3">Other Statement of Responsibility</th>
+																
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><?php echo $row['subtitle']?></td>
+																<td><?php echo $row['edition']?></td>
+																<td><?php echo $row['series']?></td>
+																<td><?php echo $row['isbn']?></td>
+																<td><?php echo $row['copyright']?></td>
+																<td><?php echo $row['state1']?></td>
+																<td><?php echo $row['state2']?></td>
+																<td><?php echo $row['state3']?></td>
+															</tr>														
+														</tbody>
+														<thead>
+															<tr>
+																<th>Call Number</th>
+																<th>Copies</th>
+																<th>Book Dealer</th>
+																<th>Physical Description</th>
+																<th>Date Recieved</th>
+																<th colspan="3">Subject</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><?php echo $row['callnum']?></td>
+																<td><?php echo $row['copies']?></td>
+																<td><?php echo $row['bookdealer']?></td>
+																<td><?php echo $row['physical']?></td>
+																<td><?php echo $row['dateres']?></td>
+																<td><?php echo $row['sub1']?></td>
+																<td><?php echo $row['sub2']?></td>
+																<td><?php echo $row['sub3']?></td>
+															</tr>
+														</tbody>
+														<thead>
+															<tr>
+																<th>Notes</th>
+																<th>Source of Fund</th>
+																<th>Price</th>
+																<th>Publisher Date</th>
+																<th>Category</th>
+																<th colspan="3">Account Number</th>
+
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><?php echo $row['notes']?></td>
+																<td><?php echo $row['srcfund']?></td>
+																<td><?php echo $row['price']?></td>
+																<td><?php echo $row['publisherdate']?></td>
+																<td><?php echo $row['category']?></td>
+																<td colspan="3"><?php echo $row['accnum']?></td>
+
+															</tr>
+														</tbody>
+													</table>
+												<!-- <div>
 													<label>
 														subtitle
 													</label>
-													<?php echo $row['subtitle']?>
+													
 												</div>
 												<div>
-													<label>callnumber</label>
-													<?php echo $row['callnum']?>
-												</div>
+													<label>state1ber</label>
+													
+												</div> -->
 												<a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
-											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a>
+												<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a>
 											</td>											
 										</tr>
 
@@ -96,7 +165,7 @@
 												<div class="row">
 													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50" value="<?php echo $row['callnum']?>">
+														<input class="form-control" type="number" placeholder="Call Number" name="state1" required="" maxlength="50" value="<?php echo $row['state1']?>">
 													</div>
 												</div>
 
@@ -332,7 +401,7 @@
 												<div class="row">
 													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50">
+														<input class="form-control" type="number" placeholder="Call Number" name="state1" required="" maxlength="50">
 													</div>
 												</div>
 
