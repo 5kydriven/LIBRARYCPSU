@@ -1739,7 +1739,7 @@ pre code {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.table-hover tbody tr:hover {
+.table-hover tbody .hover:hover {
   color: #212529;
   background-color: rgba(0, 0, 0, 0.075);
 }
@@ -1966,7 +1966,7 @@ pre code {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.table-dark.table-hover tbody tr:hover {
+.table-dark.table-hover tbody .hover:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.075);
 }

@@ -4174,4 +4174,9 @@ table tr {
 
 table tbody {
   overflow-x: scroll;
+  
+}
+
+table .hover:hover {
+  background-color: #000;
 }
