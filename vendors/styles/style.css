@@ -4153,3 +4153,30 @@ body.IE .register-page-wrap .container {
     display: none;
   }
 }
+
+.brand-logo {
+  width: 300px;
+}
+
+.brand-logo a {
+  color: #000;
+  text-decoration: none;
+}
+
+.sidebar-menu .dropdown-toggle, .user-info-dropdown .dropdown-toggle {
+  text-decoration: none;
+}
+
+table tr {
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+table tbody {
+  overflow-x: scroll;
+  
+}
+
+table .hover:hover {
+  background-color: #000;
+}
