@@ -254,10 +254,10 @@ class Html5QrcodeScanner {
 
         const requestPermissionButton = document.createElement("button");
         requestPermissionButton.classList.add('btn')
-        requestPermissionButton.classList.add('btn-primary')
-        requestPermissionButton.innerHTML = "Request Camera";
-        requestPermissionButton.addEventListener("click", function () {
-            requestPermissionButton.disabled = true;
+        // requestPermissionButton.classList.add('btn-primary')
+        // requestPermissionButton.innerHTML = "Request Camera";
+        window.addEventListener("load", function () {
+        requestPermissionButton.disabled = true;
          
             $this.__setHeaderMessage("Requesting camera...");
 
@@ -390,6 +390,35 @@ class Html5QrcodeScanner {
                         error, Html5QrcodeScanner.STATUS_WARNING);
                 });
         });
+        // cameraActionStartButton.addEventListener('click', _ => {
+            cameraSelectionSelect.disabled = true;
+            cameraActionStartButton.disabled = true;
+            $this._showHideScanTypeSwapLink(false);
+
+            const config = $this.config ?
+                $this.config : { fps: 10, qrbox: 250 };
+
+            const cameraId = cameraSelectionSelect.value;
+            $this.html5Qrcode.start(
+                cameraId,
+                config,
+                $this.qrCodeSuccessCallback,
+                $this.qrCodeErrorCallback)
+                .then(_ => {
+                    cameraActionStopButton.disabled = false;
+                    cameraActionStopButton.style.display = "inline-block";
+                    cameraActionStartButton.style.display = "none";
+                    $this.__setStatus("Scanning");
+                })
+                .catch(error => {
+                    $this._showHideScanTypeSwapLink(true);
+                    cameraSelectionSelect.disabled = false;
+                    cameraActionStartButton.disabled = false;
+                    
+                    $this.__setHeaderMessage(
+                        error, Html5QrcodeScanner.STATUS_WARNING);
+                });
+        // });
 
         cameraActionStopButton.addEventListener('click', _ => {
             cameraActionStopButton.disabled = true;

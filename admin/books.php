@@ -1,6 +1,6 @@
 				
 <?php include 'header.php'; ?>
-
+	<script src="../js/table2excel-books.js"></script>
 	<div class="mobile-menu-overlay"></div>
 
 	<div class="main-container">
@@ -9,67 +9,136 @@
 				<div class="card-box mb-30">
 					<div class="pd-20">
 						<h4 class="text-blue h4">Books</h4>
+						<a href="../php/download_excel.php?books" class="pull-right btn btn-success btn-sm ml-1" style="margin-top: -2em;  padding: 4px 20px" id="2excel">Excel</a>
 						<a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
 					</div>
+
 					<div class="pb-20">
-						<table class="data-table table nowrap">
-							<thead>
+						<table class="table table-hover">
+							<thead class="table-light">
 								<tr>
-									<th>Book Image</th>
-									<th>Section</th>
 									<th>Title</th>
 									<th>Authors</th>
 									<th>Publication</th>
 									<th>Publisher</th>
-									<th>ISBN</th>
-									<th>Copyright</th>
-									<th>Copies</th>
-									<th>Physical Description</th>
-									<th>Notes</th>
-									<th>Location</th>
-									<th class="datatable-nosort">Action</th>
+									<th>Section</th>												
 								</tr>
 							</thead>
-							<tbody>
+							<tbody class="table-group-divider accordion" id="accordionExample">
 
 								<?php
 
 									$sql = mysqli_query($conn, "SELECT * from books");
 									while ($row = mysqli_fetch_array($sql)) { ?>
 
-										<tr style="overflow: scroll; width: 520px; text-transform: capitalize;">
+										<tr style="overflow: scroll; width: 520px; text-transform: capitalize; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#accordion_<?php echo $row['bookid']?>" class="accordion-item hover" aria-expanded="true" aria-controls="accordion_<?php echo $row['bookid']?>">
  
-											<td><?php 
+											<td style="vertical-align: bottom;"><?php 
 
 											if ($row['bookimage']=="") {
-												echo "<span class='micon dw dw-book' style='font-size:2em;color:limegreen'></span>";
+												echo "<span class='micon dw dw-book' style='font-size:3em;color:limegreen'></span>";
 											}else{
 
-											echo '<img class="img" src="'."../upload/".$row['bookimage'].'">' ;
+											echo '<img class="img" style="margin-right: 0.5rem;" src="'."../upload/".$row['bookimage'].'">' ;
 											}
+
+											echo $row['title']
 											?>
 												
 											</td>
-
-											<td><?php echo $row['section'] ?></td>
 											
-
-											<td><?php echo $row['title'] ?></td>
-
 											<td><?php echo $row['authors'] ?></td>
 											<td><?php echo $row['publication'] ?></td>
 											<td><?php echo $row['publisher'] ?></td>
-											<td><?php echo $row['isbn'] ?></td>
-											<td><?php echo $row['copyright'] ?></td>
-											<td><?php echo $row['copies'] ?></td>
-											<td><?php echo $row['physical'] ?></td>
-											<td><?php echo $row['notes'] ?></td>
-											<td><?php echo $row['category'] ?></td>
-											<td><a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
-											<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a></td>
+											<td><?php echo $row['section'] ?></td>
 										</tr>
-							<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+										<tr id="accordion_<?php echo $row['bookid']?>" class="collapse accordion-collapse" data-bs-parent="#accordionExample" >
+											<td colspan="5">
+													<table class="table table-bordered table-sm table-striped">
+														<thead>
+															<tr>
+																<th>Subtitle</th>
+																<th>Edition</th>
+																<th>Series</th>
+																<th>ISBN</th>
+																<th>Copyright</th>
+																<th colspan="3">Other Statement of Responsibility</th>
+																
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><?php echo $row['subtitle']?></td>
+																<td><?php echo $row['edition']?></td>
+																<td><?php echo $row['series']?></td>
+																<td><?php echo $row['isbn']?></td>
+																<td><?php echo $row['copyright']?></td>
+																<td><?php echo $row['state1']?></td>
+																<td><?php echo $row['state2']?></td>
+																<td><?php echo $row['state3']?></td>
+															</tr>														
+														</tbody>
+														<thead>
+															<tr>
+																<th>Call Number</th>
+																<th>Copies</th>
+																<th>Book Dealer</th>
+																<th>Physical Description</th>
+																<th>Date Recieved</th>
+																<th colspan="3">Subject</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><?php echo $row['callnum']?></td>
+																<td><?php echo $row['copies']?></td>
+																<td><?php echo $row['bookdealer']?></td>
+																<td><?php echo $row['physical']?></td>
+																<td><?php echo $row['dateres']?></td>
+																<td><?php echo $row['sub1']?></td>
+																<td><?php echo $row['sub2']?></td>
+																<td><?php echo $row['sub3']?></td>
+															</tr>
+														</tbody>
+														<thead>
+															<tr>
+																<th>Notes</th>
+																<th>Source of Fund</th>
+																<th>Price</th>
+																<th>Publisher Date</th>
+																<th>Category</th>
+																<th colspan="3">Account Number</th>
 
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><?php echo $row['notes']?></td>
+																<td><?php echo $row['srcfund']?></td>
+																<td><?php echo $row['price']?></td>
+																<td><?php echo $row['publisherdate']?></td>
+																<td><?php echo $row['category']?></td>
+																<td colspan="3"><?php echo $row['accnum']?></td>
+
+															</tr>
+														</tbody>
+													</table>
+												<!-- <div>
+													<label>
+														subtitle
+													</label>
+													
+												</div>
+												<div>
+													<label>state1ber</label>
+													
+												</div> -->
+												<a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
+												<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a>
+											</td>											
+										</tr>
+
+										<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 <!-- update book -->
 								<div class="modal-dialog modal-dialog-centered modal-lg">
 									<div class="modal-content container-fluid">
@@ -96,7 +165,7 @@
 												<div class="row">
 													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50" value="<?php echo $row['callnum']?>">
+														<input class="form-control" type="number" placeholder="Call Number" name="state1" required="" maxlength="50" value="<?php echo $row['state1']?>">
 													</div>
 												</div>
 
@@ -141,7 +210,7 @@
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
-													<div class="col-sm-12 col-md-7">
+													<div class="col-sm-12 col-md-6">
 														<input class="form-control" type="text" placeholder="Publisher" name="publisher" value="<?php echo $row['publisher'] ?>">
 													</div>
 													<div class="col-sm col">
@@ -294,7 +363,7 @@
 											</form>
 										</div>
 									</div>
-								</div>
+								</div>	
 							</div>
 								<?php } ?>
 		
@@ -332,7 +401,7 @@
 												<div class="row">
 													<label class="col-sm col-form-label">Call No.<i style="color:red;font-size:1em;">*</i></label>
 													<div class="col-sm-12 col-md-10 mb-1">
-														<input class="form-control" type="number" placeholder="Call Number" name="callnum" required="" maxlength="50">
+														<input class="form-control" type="number" placeholder="Call Number" name="state1" required="" maxlength="50">
 													</div>
 												</div>
 
@@ -536,10 +605,9 @@
 									</div>
 								</div>
 							</div>
-
 		
 
 		<?php include 'footer.php';  ?>
-
+		
 
 
