@@ -1,5 +1,40 @@
 	
-
+</div>
+</div>
+	<script>
+		new DataTable('table.display', {
+			paging: false,
+    		responsive: {
+				details: {
+					renderer: function (api, rowIdx, columns) {
+						let data = columns.map((col, i) => {
+							return col.hidden
+								? '<tr data-dt-row="' +
+										col.rowIndex +
+										'" data-dt-column="' +
+										col.columnIndex +
+										'">' +
+										'<td>' +
+										col.title +
+										':' +
+										'</td> ' +
+										'<td>' +
+										col.data +
+										'</td>' +
+										'</tr>'
+								: '';
+						}).join('');
+		
+						let table = document.createElement('table');
+						table.innerHTML = data;
+		
+						return data ? table : false;
+					}
+				}
+    		},
+			scrollY: 270
+});
+	</script>
 	<!-- <div class="footer-wrap pd-20 mb-20 card-box">
 		Enhance Library System with SMS Notification for CPSU San Carlos Campus
 	</div> -->

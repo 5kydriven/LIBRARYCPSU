@@ -14,7 +14,7 @@
 					</div>
 
 					<div class="pb-20">
-						<table class="data-table table nowrap">
+						<table class="display table nowrap">
 							<thead>
 								<tr>
 									

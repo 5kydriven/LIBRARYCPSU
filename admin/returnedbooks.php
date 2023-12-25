@@ -11,7 +11,7 @@
 						<h4 class="text-blue h4">Returned Books<a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
 					</div>
 					<div class="pb-20" id="print">
-						<table class="data-table table stripe hover nowrap">
+						<table class="display table stripe hover nowrap">
 							
 							
 							<thead>

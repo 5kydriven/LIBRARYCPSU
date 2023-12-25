@@ -15,10 +15,10 @@ include '../phpqrcode/qrlib.php'; ?>
 					</div>
 
 					<div class="pb-20">
-						<table class="data-table table stripe hover nowrap">
+						<table class="display table nowrap" id="" style="width: 100%;">
 							<thead>
 								<tr>
-									<th ></th>
+									<th>QR Code</th>
 									<th class="table-plus datatable-nosort">ID Number</th>
 									<th>Fullname</th>
 									<th>Contact</th>
@@ -26,6 +26,8 @@ include '../phpqrcode/qrlib.php'; ?>
 									<th>Type</th>
 									<th>Course</th>
 									<th>Year Level</th>
+									<th>Address</th>
+									<th>Guardian</th>
 									<th class="datatable-nosort">Action</th>
 								</tr>
 							</thead>
@@ -38,9 +40,9 @@ include '../phpqrcode/qrlib.php'; ?>
 									while ($row = mysqli_fetch_array($sql)) { ?>
 
 										<tr style="text-transform: capitalize;">
-											<td><?php 
+											<td class="d-flex"><?php 
 
-											echo '<div class="col-xs-4" >';
+											echo '<div class="col-xs-3" >';
 
 					                           $dir = '../qrcode/'; 
 
@@ -52,7 +54,7 @@ include '../phpqrcode/qrlib.php'; ?>
 					                                  echo '<img class="imggg" src="../qrcode/'. @$name.'.png" style="height:50px;width:50px">';
 					                                  echo '</div>';
 
-					                        echo '<div class="col-xs-4" >'; ?></td>
+					                        ?></td>
 
 											<td><?php echo $row['idnumber'] ?></td>
 											<td><?php echo $row['fullname'] ?></td>
@@ -61,6 +63,8 @@ include '../phpqrcode/qrlib.php'; ?>
 											<td><?php echo $row['type'] ?></td>
 											<td><?php echo $row['course'] ?></td>
 											<td><?php echo $row['yearlevel'] ?></td>
+											<td><?php echo $row['address'] ?></td>
+											<td><?php echo $row['guardian'] ?></td>
 
 											<td><a href="" data-toggle="modal" data-target="#edit<?php echo $row['memid'] ?>" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
 

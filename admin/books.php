@@ -9,12 +9,12 @@
 				<div class="card-box mb-30">
 					<div class="pd-20">
 						<h4 class="text-blue h4">Books</h4>
-						<a href="../php/download_excel.php?books" class="pull-right btn btn-success btn-sm ml-1" style="margin-top: -2em;  padding: 4px 20px" id="2excel">Excel</a>
+						<a href="../php/excelExport.php?dt=books" class="pull-right btn btn-success btn-sm ml-1" style="margin-top: -2em;  padding: 4px 20px" id="2excel">Excel</a>
 						<a class="pull-right btn btn-primary btn-sm" href="	" data-toggle="modal" data-target="#addbook" type="button" style="margin-top: -2em">Add Book</a>
 					</div>
 
 					<div class="pb-20">
-						<table class="table table-hover">
+						<table class=" table table-hover" id="book">
 							<thead class="table-light">
 								<tr>
 									<th>Title</th>
@@ -24,7 +24,7 @@
 									<th>Section</th>												
 								</tr>
 							</thead>
-							<tbody class="table-group-divider accordion" id="accordionExample">
+							<tbody class="table-group-divider accordion " id="accordionExample">
 
 								<?php
 
@@ -450,7 +450,7 @@
 
 												<div class="form-group row">
 													<label class="col-sm-12 col-md-2 col-form-label">Publisher</label>
-													<div class="col-sm-12 col-md-7">
+													<div class="col-sm-12 col-md-6">
 														<input class="form-control" type="text" placeholder="Publisher" name="publisher">
 													</div>
 													
