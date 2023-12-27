@@ -28,9 +28,12 @@ date_default_timezone_set('Asia/Manila');
 	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="vendors/styles/style2.css">
+	
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
 </head>
 <body class="login-page" style="background:url(upload/a.jpg);">
@@ -55,12 +58,13 @@ date_default_timezone_set('Asia/Manila');
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-4" style="background-color: #f9f9f9">
-
 					<div id="qr-reader" style="width:calc(100%);"></div>
-
                     <div id="qr-reader-results"></div>
-
-
+					<div class="label"><hr>OR<hr></div>
+					<form id="input-form"  method="POST">
+						<input type="text" placeholder="ex. (CPSU-LRC-0000)" name="idNum" id="id-number"><br><br>
+						<button name="submit" >Submit</button>
+					</form>
 				</div>
 
 
@@ -175,6 +179,29 @@ date_default_timezone_set('Asia/Manila');
             "qr-reader", { fps: 10, qrbox: 160 });
         html5QrcodeScanner.render(onScanSuccess);
     });
+
+	$(document).ready(function(){
+			$("#input-form").submit(function(event) {
+				event.preventDefault();
+				var idNum = $("#id-number").val();
+				$.ajax({
+						url:'php/in.php?id=id',
+						method:'POST',
+						data:{
+							idscan:idNum
+						},
+						error:err=>{
+							console.log(err)
+							alert_toast('An Error Occured.');
+						},
+						success:function(data){
+							$('#data').html(data);
+							document.getElementById('data').style.display = 'block';
+							
+						}
+					})
+			});
+		});
 
 </script> 
 
