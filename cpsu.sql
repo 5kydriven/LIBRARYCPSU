@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`adminid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `allowable` (
   `allowdays` varchar(255) NOT NULL,
   `penalty` varchar(255) NOT NULL,
   PRIMARY KEY (`allowid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `allowable`
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `api` (
   `code` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `api`
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `edition` varchar(255) NOT NULL,
   `publication` varchar(255) NOT NULL,
   `publisher` varchar(255) NOT NULL,
-  `publisherdate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_nopad_ci NOT NULL,
+  `publisherdate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `series` varchar(255) NOT NULL,
   `sub1` varchar(255) NOT NULL,
   `sub2` varchar(255) NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `srcfund` varchar(255) NOT NULL,
   `price` int NOT NULL,
   PRIMARY KEY (`bookid`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `bookstatus` (
   `status` varchar(255) NOT NULL,
   `penalty` varchar(255) NOT NULL,
   PRIMARY KEY (`bookstatusid`)
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookstatus`
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `cateid` int NOT NULL AUTO_INCREMENT,
   `category` varchar(255) NOT NULL,
   PRIMARY KEY (`cateid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `course` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `log`
@@ -258,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `guardian` varchar(100) NOT NULL,
   `action` varchar(255) NOT NULL,
   PRIMARY KEY (`memid`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `members`
@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `reports` (
   `task` varchar(255) NOT NULL,
   `transactiondate` varchar(255) NOT NULL,
   PRIMARY KEY (`reportid`)
-) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `reports`
