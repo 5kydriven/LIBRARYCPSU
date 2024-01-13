@@ -55,7 +55,7 @@
 										<tr id="accordion_<?php echo $row['bookid']?>" class="collapse accordion-collapse" data-bs-parent="#accordionExample" >
 											<td colspan="5">
 													<table class="table table-bordered table-sm table-striped">
-														<thead>
+														<thead class="th-book">
 															<tr>
 																<th>Subtitle</th>
 																<th>Edition</th>
@@ -66,7 +66,7 @@
 																
 															</tr>
 														</thead>
-														<tbody>
+														<tbody class="extra-book">
 															<tr>
 																<td><?php echo $row['subtitle']?></td>
 																<td><?php echo $row['edition']?></td>
@@ -78,7 +78,7 @@
 																<td><?php echo $row['state3']?></td>
 															</tr>														
 														</tbody>
-														<thead>
+														<thead class="th-book">
 															<tr>
 																<th>Call Number</th>
 																<th>Copies</th>
@@ -88,7 +88,7 @@
 																<th colspan="3">Subject</th>
 															</tr>
 														</thead>
-														<tbody>
+														<tbody class="extra-book">
 															<tr>
 																<td><?php echo $row['callnum']?></td>
 																<td><?php echo $row['copies']?></td>
@@ -100,7 +100,7 @@
 																<td><?php echo $row['sub3']?></td>
 															</tr>
 														</tbody>
-														<thead>
+														<thead class="th-book">
 															<tr>
 																<th>Notes</th>
 																<th>Source of Fund</th>
@@ -111,7 +111,7 @@
 
 															</tr>
 														</thead>
-														<tbody>
+														<tbody class="extra-book">
 															<tr>
 																<td><?php echo $row['notes']?></td>
 																<td><?php echo $row['srcfund']?></td>
