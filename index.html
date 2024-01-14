@@ -1,0 +1,79 @@
+<?php
+
+
+date_default_timezone_set('Asia/Manila');
+	 $time = date("h:i A");
+   $date = date("M-d-Y l",strtotime("-8 HOURS"));
+    $times = date("A",strtotime("-8 HOURS"));
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>Enhance Library System</title>
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="upload/logo.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="upload/logo.png">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="vendors/styles/style2.css">
+	<link rel="stylesheet" href="./vendors/styles/index.css">
+
+	<!-- icon -->
+	<script src="https://kit.fontawesome.com/ee4c203372.js" crossorigin="anonymous"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+</head>
+<body class="login-page" style="background:url(upload/a.jpg);">
+	<div class="container">
+		<a href="./userIN/index.php" class="card" style="border:3px solid #1d9be4;">
+			<div class="card_wrap">
+				<div class="card-border-top" style="background: #1d9be4;">
+				</div>
+				<div class="img">
+					<i class="fa-solid fa-users-viewfinder" style="color: #226499;"></i>
+				</div>
+				<span> Users</span>
+				<p class="job"> in/out</p>
+			  </div>
+		</a>
+		<a href="borrower_page.php" class="card" style="border: 3px solid #38c02c;">
+			<div class="card_wrap">
+				<div class="card-border-top" style="background: #41a039;">
+				</div>
+				<div class="img">
+				  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0pGAtyud8_70fQFCNwYDw2bV88AcU_2h1ZTg-JfEWsKgPlIDZqE-2ghW5OwH1Jj_50eI&usqp=CAU" alt="">
+				</div>
+				<span> Books</span>
+				<p class="job"> borrow</p>
+			  </div>
+		</a>
+		<a href="./admin/adminAuth.php" class="card" style="border: 3px solid #06448b;">
+			<div class="card_wrap" >
+				<div class="card-border-top" style="background: #06448b;">
+				</div>
+				<div class="img">
+					<i class="fa-solid fa-user-tie" style="color: #06448b;"></i>
+				</div>
+				<span> Admin</span>
+				<p class="job"> login</p>
+			  </div>
+			</a>
+	</div>
+</body>
+</html>

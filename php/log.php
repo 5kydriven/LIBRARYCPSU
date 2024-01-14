@@ -25,12 +25,12 @@ switch ($action) {
 
         if ($rows < 1) { ?>
 
-                 <div class="alert alert-dismissible"><br><br>
+                 
                   <center><i class="icon fa fa-ban text-danger" style="font-size: 5em" ></i></center>
-                  <p style="font-size: 2em;text-align:center; color: white ">No Match found!!!</p>
+                  <p style="font-size: 2em;text-align:center;">No Match found!!!</p>
                   <embed src="../beep.mp3" style="visibility:hidden">
                   
-                </div>
+               
  
         <?php }
         else{
@@ -41,12 +41,13 @@ switch ($action) {
                 ?>
                <!--   //echo 2; // intering in -->
                 
-                <div class="alert alert-dismissible">
-                    <br><br>
-                    <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
-                    <p style="font-size: 2em;text-align:center;  color: white  ">Welcome!!!</p>
-                    <embed src="../beep.mp3" style="visibility:hidden">
-                </div>
+               
+                            <center>
+                                <i class="icon fa fa-check text-success" style="font-size: 5em" ></i>
+                            </center>
+                            <p style="font-size: 2em;text-align:center; ">Welcome!!!</p>
+                            <embed src="../beep.mp3" style="visibility:hidden">
+                
                      
 
 
@@ -62,12 +63,11 @@ switch ($action) {
                             mysqli_query($conn, "INSERT into `log`(`memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) values ('$id','$idscan','$date','$time','','$name','$course','$type')") or die("failed");
                             //echo 2; intering in// ?>
                                
-                              <div class="alert alert-dismissible">
-                                <br><br>
+                              
                               <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
-                              <p style="font-size: 2em;text-align:center;  color: white ">Welcome!!!</p>
+                              <p style="font-size: 2em;text-align:center;">Welcome!!!</p>
                               <embed src="../beep.mp3" style="visibility:hidden">
-                              </div>
+                              
                        <?php  }
                         else{
 
@@ -77,13 +77,12 @@ switch ($action) {
                             //echo 3; // exiting 
                             ?>
 
-                            <div class="alert alert-dismissible">
-                              <br><br>
+                        
                               <center><i class="icon fa fa-times text-danger" style="font-size: 5em" ></i></center>
-                              <p style="font-size: 2em;text-align:center; color:white">Bye!!!</p>
+                              <p style="font-size: 2em;text-align:center;">Bye!!!</p>
                               <embed src="../beep.mp3" style="visibility:hidden">
                               
-                            </div>
+                            
 
                                      
                        <?php }

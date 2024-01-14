@@ -3904,6 +3904,16 @@ body.IE .register-page-wrap .container {
 .table-actions a + a {
   margin-left: 10px;
 }
+
+.extra-book td {
+  font-weight: 400;
+}
+
+.th-book th {
+  background-color: rgb(129, 129, 129) !important;
+  text-align: center;
+}
+
 @media (min-width: 1301px) and (max-width: 1400px) {
   .header {
     width: calc(100% - 250px);

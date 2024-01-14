@@ -26,8 +26,9 @@ session_start();
 
 				}
 				else{
-					  echo "<script>alert('Invalid username and password')</script>";
-                     echo "<script>window.open('../index.php', '_self')</script>";
+					//   echo "<script>alert('Invalid username and password')</script>";
+                    //  echo "<script>window.open('../admin/adminAuth.html', '_self')</script>";
+					 header('location: ../admin/adminAuth.php?error=Invalid username or password!');
 				}
 	}
 
