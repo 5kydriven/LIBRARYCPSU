@@ -46,8 +46,10 @@ date_default_timezone_set('Asia/Manila');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
 </head>
-<body class="login-page" style="background:url(../upload/a.jpg);">
-	<!-- <div class="login-header box-shadow">
+
+<body class="login-page">
+	<div class="login-header box-shadow">
+
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="../index.html">
@@ -55,7 +57,7 @@ date_default_timezone_set('Asia/Manila');
 				</a>
 			</div>
 		</div>
-	</div> -->
+	</div> 
 
 
 	<div class="main">

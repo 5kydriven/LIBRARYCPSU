@@ -57,6 +57,7 @@ form button{
     border: 1px solid #5778d1;
 }
 
+ 
 .col-md-4{
     border-radius: 5px;
 }
@@ -295,4 +296,11 @@ form button{
 .login-header{
     border-radius: 5px;
 }
+
+
+.login-page {
+    background: url(../../upload/a.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
 

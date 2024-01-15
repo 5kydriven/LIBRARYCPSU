@@ -36,18 +36,8 @@ date_default_timezone_set('Asia/Manila');
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
 </head>
-<body class="login-page" style="background:url(upload/a.jpg);">
-	<!-- <div class="login-header box-shadow">
-		<div class="container-fluid d-flex justify-content-between align-items-center">
-			<div class="brand-logo">
-				<a href="index.html">
-					<img src="upload/logo.png" style="height: 2.5em;width: 2.5em">  <h3 style="margin-left: 0.5em">   Enhance Library System</h3>
-				</a>
-			</div>
-			
-		</div>
-	</div> -->
-
+<body class="login-page">
+	
 
 	<div class="main">
 				<div class="col-md-4" style="background-color: #f9f9f9">
@@ -59,6 +49,7 @@ date_default_timezone_set('Asia/Manila');
 						<button name="submit" >Submit</button>
 					</form>
 				</div>
+
 				<div class="card shadow" >
 					<div class="con">
 						<div class="login-header box-shadow">
@@ -113,15 +104,8 @@ date_default_timezone_set('Asia/Manila');
 							</div>
 						</div>
 					</div>
-
-
-			
 	</div>
 
-
-
-
-	
 <script>
     function docReady(fn) {
         // see if DOM is already available
@@ -157,8 +141,10 @@ date_default_timezone_set('Asia/Manila');
                     success:function(data){
 
                         $('#data').html(data);
+
                           document.getElementById('data').style.display = 'block';
 						  document.getElementById('loader').style.display = 'none';
+
 
                     }
                 })
@@ -186,7 +172,9 @@ date_default_timezone_set('Asia/Manila');
 						success:function(data){
 							$('#data').html(data);
 							document.getElementById('data').style.display = 'block';
+
 						  	document.getElementById('loader').style.display = 'none';
+
 							
 						}
 					})
