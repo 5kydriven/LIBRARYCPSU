@@ -47,9 +47,9 @@ date_default_timezone_set('Asia/Manila');
 	
 </head>
 
+
 <body class="login-page">
 	<!-- <div class="login-header box-shadow">
-
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
 				<a href="../index.html">
@@ -57,7 +57,8 @@ date_default_timezone_set('Asia/Manila');
 				</a>
 			</div>
 		</div>
-	</div>  -->
+	</div> -->
+
 
 
 	<div class="main">
@@ -204,6 +205,16 @@ date_default_timezone_set('Asia/Manila');
 			document.getElementById('loader').style.display = 'block';
 			document.getElementById('id-number').value = '';
 			};
+
+	const hours = currentDate.getHours();
+	const minutes = currentDate.getMinutes();
+
+	const combinedTime = hours + ':' + minutes + 'pm';
+	console.log(combinedTime);
+	if(combinedTime == '08:00pm'){
+		location.reload(true);
+	}
+
 	</script> 
 	<script src="../vendors/scripts/core.js"></script>
 	<script src="../vendors/scripts/script.min.js"></script>
