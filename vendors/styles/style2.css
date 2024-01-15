@@ -56,3 +56,9 @@ form button{
     background: #5778d1;
     border: 1px solid #5778d1;
 }
+
+.login-page {
+    background: url(../../upload/a.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
