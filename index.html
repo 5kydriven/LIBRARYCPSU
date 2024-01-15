@@ -1,3 +1,11 @@
+<?php
+
+
+date_default_timezone_set('Asia/Manila');
+	 $time = date("h:i A");
+   $date = date("M-d-Y l",strtotime("-8 HOURS"));
+    $times = date("A",strtotime("-8 HOURS"));
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,7 +39,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
 </head>
-
 <body class="login-page" style="background:url(upload/a.jpg);">
 	<div class="container">
 		<a href="./userIN/index.php" class="card" style="border:3px solid #1d9be4;">
@@ -68,11 +75,5 @@
 			  </div>
 			</a>
 	</div>
-	<script>
-		alert(combinedTime);
-	if(combinedTime >= '08:00pm'){
-
-	}
-	</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 15, 2024 at 02:39 PM
+-- Generation Time: Jan 13, 2024 at 01:21 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -135,10 +135,10 @@ INSERT INTO `books` (`bookid`, `title`, `subtitle`, `authors`, `state1`, `state2
 (23, 'Text book on the Philippine Constitution', '', 'De Leon, Hector S.', '', '', '', '2014', 'Manila ', 'Rex Book Store', '', '', '', '', '', '9789712367298', '2014', '1', 'Reference', 'Filipinana', 'Ivi, 820p. ; 22cm', '', '', 0, '', 0, '', '', 0),
 (24, 'Assessment of student learning 1', '', 'Arellano, Aquilino D.', '', '', '', '2016', 'Manila Philippines', 'St. Andrew Publishing House', '', '', '', '', '', '9789710145119', '2016', '2', 'info tect', 'Reserved', 'iv, 105p. : ill.', '', '', 0, '', 0, '', '', 0),
 (25, 'Essential Mathematics for the Modern World', '', 'Nocon, Rizaldi C.', '', '', '', '2018', 'Quezon City', 'C&E Publishing Inc.', '', '', '', '', '', '9789719809333', '2018', '2', 'accounting', 'Reserved', 'x, 510 pages : ill ; 26cm', '', '', 0, '', 0, '', '', 0),
-(26, 'Data Analysis and Business Modeling ', '', 'Monohar, Hansa Lysander', '', '', '', '2017', 'New Delhi ', 'PHI Learning Private Limited', '', '', '', '', '', '9788120352889', '2017', '0', 'info tect', 'Circultion', 'xi, 367p. : ill', '', '', 0, '', 0, '', '', 0),
-(27, 'Practical Behavior Management', '', 'Lawrence, Tracey', '', '', '', '2017', 'India', 'Bloomsbury Publishing Plc', '', '', '', '', '', '9781472942357', '2017', '1', 'GEC', 'Circultion', 'x, 164p. : illustrations ; 22cm', '', '', 0, '', 0, '', '', 0),
+(26, 'Data Analysis and Business Modeling ', '', 'Monohar, Hansa Lysander', '', '', '', '2017', 'New Delhi ', 'PHI Learning Private Limited', '', '', '', '', '', '9788120352889', '2017', '2', 'info tect', 'Circultion', 'xi, 367p. : ill', '', '', 0, '', 0, '', '', 0),
+(27, 'Practical Behavior Management', '', 'Lawrence, Tracey', '', '', '', '2017', 'India', 'Bloomsbury Publishing Plc', '', '', '', '', '', '9781472942357', '2017', '2', 'GEC', 'Circultion', 'x, 164p. : illustrations ; 22cm', '', '', 0, '', 0, '', '', 0),
 (28, 'The 48 laws of power.', 'Key Insights & Analysis.', 'Robert Greene.', 'asdf.', 'asdf.', 'adfsa.', 'asdf.', 'asd.', 'asdf.', '2023-12-11', 'adf.', 'asdf.', 'adf.', 'asdf.', '21412341235131', 'asdf.', '1', 'agriculture', 'Reserved', 'adf.', 'asdf.', '', 123434134, 'asdfad.', 980879523, '2023-12-29', 'sdaf.', 258),
-(29, 'Atomic Habits', '', 'James Clear', '', '', '', '', '', '', '', '', '', '', '', '687456356354', '', '1', 'GEC', 'Fiction', '', '', '', 2147483647, '', 0, '2023-12-27', '', 0);
+(29, 'Atomic Habits', '', 'James Clear', '', '', '', '', '', '', '', '', '', '', '', '687456356354', '', '2', 'GEC', 'Fiction', '', '', '', 2147483647, '', 0, '2023-12-27', '', 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `bookstatus` (
   `status` varchar(255) COLLATE utf8mb4_general_nopad_ci NOT NULL,
   `penalty` varchar(255) COLLATE utf8mb4_general_nopad_ci NOT NULL,
   PRIMARY KEY (`bookstatusid`)
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 --
 -- Dumping data for table `bookstatus`
@@ -168,12 +168,7 @@ INSERT INTO `bookstatus` (`bookstatusid`, `booksid`, `memid`, `borrowed`, `retur
 (113, 26, 20, '2022-02-20', '2022-02-21', '2022-02-22', 'returned', 'no penalty'),
 (114, 26, 21, '2022-02-22', '2022-02-22', '2022-02-26', 'returned', 'no penalty'),
 (115, 26, 23, '2023-11-16', '2023-11-16', '2023-11-20', 'returned', 'no penalty'),
-(116, 23, 23, '2023-12-13', '2023-12-27', '2023-12-17', 'returned', '30'),
-(117, 23, 18, '2024-01-14', '2024-01-15', '2024-01-18', 'returned', 'no penalty'),
-(118, 29, 18, '2024-01-14', '', '2024-01-18', 'borrowed', 'no penalty'),
-(119, 27, 23, '2024-01-14', '', '2024-01-18', 'borrowed', 'no penalty'),
-(120, 26, 23, '2024-01-14', '', '2024-01-18', 'borrowed', 'no penalty'),
-(121, 26, 19, '2024-01-14', '', '2024-01-18', 'borrowed', 'no penalty');
+(116, 23, 23, '2023-12-13', '2023-12-27', '2023-12-17', 'returned', '30');
 
 -- --------------------------------------------------------
 
@@ -219,15 +214,49 @@ CREATE TABLE IF NOT EXISTS `log` (
   `course` varchar(255) COLLATE utf8mb4_general_nopad_ci NOT NULL,
   `type` varchar(255) COLLATE utf8mb4_general_nopad_ci NOT NULL,
   PRIMARY KEY (`logid`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 --
 -- Dumping data for table `log`
 --
 
 INSERT INTO `log` (`logid`, `memid`, `idnumber`, `date`, `timein`, `timeout`, `fullname`, `course`, `type`) VALUES
-(135, '23', 'CPSU-LRC-0006', '01-15-24 Monday', '10:21 PM', '10:25 PM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
-(136, '18', 'CPSU-LRC-0001', '01-15-24 Monday', '10:31 PM', '10:32 PM', 'Rejean', 'BSED III', 'Student');
+(88, '18', 'CPSU-LRC-0001', 'Feb-20-2022 Sunday', '08:32 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(89, '18', 'CPSU-LRC-0001', 'Feb-20-2022 Sunday', '08:32 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(90, '20', 'CPSU-LRC-0003', 'Feb-20-2022 Sunday', '08:35 PM', '10:04 PM', 'Abbey', 'BSIT IV', 'Student'),
+(91, '18', 'CPSU-LRC-0001', 'Feb-20-2022 Sunday', '08:36 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(92, '19', 'CPSU-LRC-0002', 'Feb-21-2022 Monday', '09:52 AM', '09:52 AM', 'Flora Mae Martinez', ' ', 'Faculty'),
+(93, '20', 'CPSU-LRC-0003', 'Feb-21-2022 Monday', '10:24 PM', '10:04 PM', 'Abbey', 'BSIT IV', 'Student'),
+(94, '21', 'CPSU-LRC-0004', 'Feb-22-2022 Tuesday', '08:29 AM', '10:05 PM', 'Mae', 'BSIT IV', 'Student'),
+(95, '22', 'CPSU-LRC-0005', 'Feb-22-2022 Tuesday', '10:54 AM', '10:04 PM', 'chester', ' ', 'Faculty'),
+(96, '22', 'CPSU-LRC-0005', 'Feb-22-2022 Tuesday', '10:54 AM', '10:04 PM', 'chester', ' ', 'Faculty'),
+(97, '21', 'CPSU-LRC-0004', 'Feb-22-2022 Tuesday', '06:45 PM', '10:05 PM', 'Mae', 'BSIT IV', 'Student'),
+(98, '23', 'CPSU-LRC-0006', 'Nov-16-2023 Thursday', '11:39 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(99, '23', 'CPSU-LRC-0006', 'Nov-16-2023 Thursday', '11:42 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(100, '23', 'CPSU-LRC-0006', 'Dec-13-2023 Wednesday', '01:01 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(101, '23', 'CPSU-LRC-0006', 'Dec-13-2023 Wednesday', '01:02 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(102, '23', 'CPSU-LRC-0006', 'Dec-13-2023 Wednesday', '01:28 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(103, '18', 'CPSU-LRC-0001', 'Dec-17-2023 Sunday', '12:13 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(104, '18', 'CPSU-LRC-0001', 'Dec-17-2023 Sunday', '12:13 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(105, '23', 'CPSU-LRC-0006', 'Dec-17-2023 Sunday', '10:07 PM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(106, '24', 'CPSU-LRC-0007', 'Dec-17-2023 Sunday', '10:17 PM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(107, '24', 'CPSU-LRC-0007', 'Dec-17-2023 Sunday', '10:21 PM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(108, '24', 'CPSU-LRC-0007', 'Dec-17-2023 Sunday', '10:32 PM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(109, '24', 'CPSU-LRC-0007', 'Dec-17-2023 Sunday', '10:34 PM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(110, '24', 'CPSU-LRC-0007', 'Dec-17-2023 Sunday', '10:36 PM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(111, '24', 'CPSU-LRC-0007', 'Dec-17-2023 Sunday', '10:42 PM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(112, '18', 'CPSU-LRC-0001', 'Dec-17-2023 Sunday', '10:44 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(113, '18', 'CPSU-LRC-0001', 'Dec-17-2023 Sunday', '10:45 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(114, '18', 'CPSU-LRC-0001', 'Dec-17-2023 Sunday', '10:52 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(115, '23', 'CPSU-LRC-0006', 'Dec-18-2023 Monday', '09:32 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(116, '18', 'CPSU-LRC-0001', '12-18-23', '04:12 PM', '11:41 AM', 'Rejean', 'BSED III', 'Student'),
+(117, '23', 'CPSU-LRC-0006', '12-18-23 Monday', '04:14 PM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(118, '23', 'CPSU-LRC-0006', '12-18-23 Monday', '07:46 AM', '08:04 AM', 'Mhel Angelo O. Tagpuno', 'BSIT III', 'Student'),
+(119, '24', 'CPSU-LRC-0007', '12-27-23 Wednesday', '11:27 AM', '11:41 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(120, '18', 'CPSU-LRC-0001', '12-27-23 Wednesday', '11:39 AM', '11:42 AM', 'Rejean', 'BSED III', 'Student'),
+(121, '24', 'CPSU-LRC-0007', '12-27-23 Wednesday', '11:41 AM', '11:42 AM', 'Laguda, Wilson R', 'BSIT III', 'Student'),
+(122, '18', 'CPSU-LRC-0001', '12-27-23 Wednesday', '11:42 AM', '', 'Rejean', 'BSED III', 'Student'),
+(123, '24', 'CPSU-LRC-0007', '12-27-23 Wednesday', '11:42 AM', '', 'Laguda, Wilson R', 'BSIT III', 'Student');
 
 -- --------------------------------------------------------
 
@@ -257,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 
 INSERT INTO `members` (`memid`, `idnumber`, `fullname`, `number`, `gender`, `type`, `yearlevel`, `course`, `address`, `guardian`, `action`) VALUES
 (18, 'CPSU-LRC-0001', 'Rejean', '9755326734', 'Female', 'Student', 'III', 'BSED', '', '', 'ONLINE'),
-(19, 'CPSU-LRC-0002', 'Flora Mae Martinez', '9755326734', 'Male', 'Faculty', '', '', '', '', 'ONLINE'),
+(19, 'CPSU-LRC-0002', 'Flora Mae Martinez', '9755326734', 'Male', 'Faculty', '', '', '', '', 'OFFLINE'),
 (20, 'CPSU-LRC-0003', 'Abbey', '9755326734', 'Female', 'Student', 'IV', 'BSIT', '', '', 'ONLINE'),
 (21, 'CPSU-LRC-0004', 'Mae', '9152902757', 'Female', 'Student', 'IV', 'BSIT', '', '', 'ONLINE'),
 (22, 'CPSU-LRC-0005', 'chester', '9755326734', 'Male', 'Faculty', '', '', '', '', 'ONLINE'),
@@ -279,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `reports` (
   `task` varchar(255) COLLATE utf8mb4_general_nopad_ci NOT NULL,
   `transactiondate` varchar(255) COLLATE utf8mb4_general_nopad_ci NOT NULL,
   PRIMARY KEY (`reportid`)
-) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 --
 -- Dumping data for table `reports`
@@ -358,13 +387,7 @@ INSERT INTO `reports` (`reportid`, `fullname`, `title`, `task`, `transactiondate
 (151, '23', '26', 'borrowed book', '2023-11-16'),
 (152, '23', '26', 'returned book', '2023-11-16'),
 (153, '23', '23', 'borrowed book', '2023-12-13'),
-(154, '23', '23', 'returned book', '2023-12-27'),
-(155, '18', '23', 'borrowed book', '2024-01-14'),
-(156, '18', '29', 'borrowed book', '2024-01-14'),
-(157, '23', '27', 'borrowed book', '2024-01-14'),
-(158, '23', '26', 'borrowed book', '2024-01-14'),
-(159, '19', '26', 'borrowed book', '2024-01-14'),
-(160, '18', '23', 'returned book', '2024-01-15');
+(154, '23', '23', 'returned book', '2023-12-27');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
