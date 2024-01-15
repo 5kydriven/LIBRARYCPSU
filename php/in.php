@@ -28,12 +28,12 @@ switch ($action) {
 
         if ($rows < 1) { ?>
 
-                 <div class="alert alert-dismissible"><br><br>
+                
                   <center><i class="icon fa fa-ban text-danger" style="font-size: 5em" ></i></center>
                   <p style="font-size: 2em;text-align:center; ">No Match found!!!</p>
                   <embed src="beep.mp3" style="visibility:hidden">
                   
-                </div>
+                
  
         <?php }
         else{
@@ -44,18 +44,15 @@ switch ($action) {
                <!--   //echo 2; // intering in -->
 
                 
-                 <div class="alert alert-dismissible">
-                  <br><br>
-                  <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
-                  <p style="font-size: 2em;text-align:center; ">Welcome!!!</p>
-                  <embed src="beep.mp3" style="visibility:hidden">
-
-                    <div>
-                      <a href="admin/memprocess.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Borrow</a>
-                       <a href="admin/memreturn.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Return</a>
-                    </div>
-                  
-                </div>
+                          <center>
+                              <i class="icon fa fa-check text-success" style="font-size: 5em" ></i>
+                          </center>
+                    			<p style="font-size: 2em;text-align:center; ">Welcome!!!</p>
+                    			<embed src="beep.mp3" style="visibility:hidden">
+								          <div>
+                        			<a href="admin/memprocess.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Borrow</a>
+                        			<a href="admin/memreturn.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Return</a>
+                    			</div>
                      
 
 
@@ -70,17 +67,16 @@ switch ($action) {
                           mysqli_query($conn, "UPDATE members SET action = 'ONLINE' WHERE idnumber = '$idscan'");
                           ?>
                                
-                              <div class="alert alert-dismissible">
-                                <br><br>
-                              <center><i class="icon fa fa-check text-success" style="font-size: 5em" ></i></center>
+                              <center>
+                                <i class="icon fa fa-check text-success" style="font-size: 5em" ></i>
+                              </center>
                               <p style="font-size: 2em;text-align:center; ">Welcome!!!</p>
                               <embed src="beep.mp3" style="visibility:hidden">
-                    <div>
-                      <a href="admin/memprocess.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Borrow</a>
-                       <a href="admin/memreturn.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Return</a>
-                    </div>
-                  
+                              <div>
+                                <a href="admin/memprocess.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Borrow</a>
+                                <a href="admin/memreturn.php?key=<?php echo $belangel['idnumber']; ?>" class="btn btn-primary">Return</a>
                               </div>
+                  
                        <?php  }
                         else{
 

@@ -31,9 +31,11 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `adminid` int(11) NOT NULL AUTO_INCREMENT,
+
   `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   PRIMARY KEY (`adminid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -53,9 +55,11 @@ INSERT INTO `admin` (`adminid`, `username`, `password`, `name`) VALUES
 DROP TABLE IF EXISTS `allowable`;
 CREATE TABLE IF NOT EXISTS `allowable` (
   `allowid` int(11) NOT NULL AUTO_INCREMENT,
+
   `allowbooks` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `allowdays` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `penalty` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   PRIMARY KEY (`allowid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -75,8 +79,10 @@ INSERT INTO `allowable` (`allowid`, `allowbooks`, `allowdays`, `penalty`) VALUES
 DROP TABLE IF EXISTS `api`;
 CREATE TABLE IF NOT EXISTS `api` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+
   `code` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `pass` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -96,6 +102,7 @@ INSERT INTO `api` (`id`, `code`, `pass`) VALUES
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
   `bookid` int(11) NOT NULL AUTO_INCREMENT,
+
   `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `subtitle` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `authors` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
@@ -123,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `accnum` int(11) NOT NULL,
   `dateres` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `srcfund` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   `price` int(11) NOT NULL,
   PRIMARY KEY (`bookid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -151,11 +159,13 @@ CREATE TABLE IF NOT EXISTS `bookstatus` (
   `bookstatusid` int(11) NOT NULL AUTO_INCREMENT,
   `booksid` int(11) NOT NULL,
   `memid` int(11) NOT NULL,
+
   `borrowed` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `returned` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `duedate` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `penalty` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   PRIMARY KEY (`bookstatusid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -179,7 +189,9 @@ INSERT INTO `bookstatus` (`bookstatusid`, `booksid`, `memid`, `borrowed`, `retur
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
   `cateid` int(11) NOT NULL AUTO_INCREMENT,
+
   `category` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   PRIMARY KEY (`cateid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -205,6 +217,7 @@ INSERT INTO `category` (`cateid`, `category`) VALUES
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE IF NOT EXISTS `log` (
   `logid` int(11) NOT NULL AUTO_INCREMENT,
+
   `memid` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `idnumber` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `date` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
@@ -215,6 +228,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `type` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`logid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Dumping data for table `log`
@@ -267,6 +281,7 @@ INSERT INTO `log` (`logid`, `memid`, `idnumber`, `date`, `timein`, `timeout`, `f
 DROP TABLE IF EXISTS `members`;
 CREATE TABLE IF NOT EXISTS `members` (
   `memid` int(11) NOT NULL AUTO_INCREMENT,
+
   `idnumber` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `fullname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
@@ -277,6 +292,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `address` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `guardian` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+
   PRIMARY KEY (`memid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -303,12 +319,14 @@ INSERT INTO `members` (`memid`, `idnumber`, `fullname`, `number`, `gender`, `typ
 DROP TABLE IF EXISTS `reports`;
 CREATE TABLE IF NOT EXISTS `reports` (
   `reportid` int(11) NOT NULL AUTO_INCREMENT,
+
   `fullname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `task` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `transactiondate` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`reportid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Dumping data for table `reports`

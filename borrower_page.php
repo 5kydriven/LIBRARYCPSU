@@ -37,26 +37,9 @@ date_default_timezone_set('Asia/Manila');
 	
 </head>
 <body class="login-page">
-	<div class="login-header box-shadow">
-		<div class="container-fluid d-flex justify-content-between align-items-center">
-			<div class="brand-logo">
-				<a href="index.html">
-					<img src="upload/logo.png" style="height: 2.5em;width: 2.5em">  <h3 style="margin-left: 0.5em">   Enhance Library System</h3>
-				</a>
-			</div>
-			<div class="login-menu">
-				<ul>
-					<li><a href="" data-toggle="modal" data-target="#admin"><div class="icon"><img src="vendors/images/person.svg" class="svg" alt=""></div></i></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	
 
-
-	<div class="login-wrap">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2"></div>
+	<div class="main">
 				<div class="col-md-4" style="background-color: #f9f9f9">
 					<div id="qr-reader" style="width:calc(100%);"></div>
                     <div id="qr-reader-results"></div>
@@ -67,61 +50,61 @@ date_default_timezone_set('Asia/Manila');
 					</form>
 				</div>
 
-
-				<div class="col-md-4">
-
-					 <p id="data" style="display: none"></p> 
-
-
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-
-
-
-	<div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h4 class="modal-title" id="myLargeModalLabel">Librarian</h4>
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-										</div>
-										<div class="modal-body">
-											<form method="POST" action="php/login.php">
-							
-												<div class="input-group custom">
-													<input type="text" class="form-control form-control-lg" placeholder="Username" name="username">
-													<div class="input-group-append custom">
-														<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-													</div>
-												</div>
-												<div class="input-group custom">
-													<input type="password" class="form-control form-control-lg" placeholder="**********" name="password">
-													<div class="input-group-append custom">
-														<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-sm-12">
-														<div class="input-group mb-0">
-															
-																
-																<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In" name="submit">
-															
-														</div>
-														
-													</div>
-												</div>
-											</form>
-
-										</div>
-									</div>
+				<div class="card shadow" >
+					<div class="con">
+						<div class="login-header box-shadow">
+							<div class="container-fluid d-flex justify-content-between align-items-center">
+								<div class="brand-logo">
+									<a href="index.html">
+										<img src="upload/logo.png" style="height: 2.5em;width: 2.5em">  <h3 style="margin-left: 0.5em">   Enhance Library System</h3>
+									</a>
 								</div>
+	
 							</div>
-
+						</div>
+						<div class="loader_con">
+							<div id="data">
+								
+							</div>
+							<div class="loader" id="loader">
+								<div>
+									<ul>
+									<li>
+										<svg fill="currentColor" viewBox="0 0 90 120">
+										<path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+										</svg>
+									</li>
+									<li>
+										<svg fill="currentColor" viewBox="0 0 90 120">
+										<path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+										</svg>
+									</li>
+									<li>
+										<svg fill="currentColor" viewBox="0 0 90 120">
+										<path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+										</svg>
+									</li>
+									<li>
+										<svg fill="currentColor" viewBox="0 0 90 120">
+										<path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+										</svg>
+									</li>
+									<li>
+										<svg fill="currentColor" viewBox="0 0 90 120">
+										<path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+										</svg>
+									</li>
+									<li>
+										<svg fill="currentColor" viewBox="0 0 90 120">
+										<path d="M90,0 L90,120 L11,120 C4.92486775,120 0,115.075132 0,109 L0,11 C0,4.92486775 4.92486775,0 11,0 L90,0 Z M71.5,81 L18.5,81 C17.1192881,81 16,82.1192881 16,83.5 C16,84.8254834 17.0315359,85.9100387 18.3356243,85.9946823 L18.5,86 L71.5,86 C72.8807119,86 74,84.8807119 74,83.5 C74,82.1745166 72.9684641,81.0899613 71.6643757,81.0053177 L71.5,81 Z M71.5,57 L18.5,57 C17.1192881,57 16,58.1192881 16,59.5 C16,60.8254834 17.0315359,61.9100387 18.3356243,61.9946823 L18.5,62 L71.5,62 C72.8807119,62 74,60.8807119 74,59.5 C74,58.1192881 72.8807119,57 71.5,57 Z M71.5,33 L18.5,33 C17.1192881,33 16,34.1192881 16,35.5 C16,36.8254834 17.0315359,37.9100387 18.3356243,37.9946823 L18.5,38 L71.5,38 C72.8807119,38 74,36.8807119 74,35.5 C74,34.1192881 72.8807119,33 71.5,33 Z"></path>
+										</svg>
+									</li>
+									</ul>
+								</div><span>Loading</span></div>
+							</div>
+						</div>
+					</div>
+	</div>
 
 <script>
     function docReady(fn) {
@@ -160,17 +143,9 @@ date_default_timezone_set('Asia/Manila');
                         $('#data').html(data);
 
                           document.getElementById('data').style.display = 'block';
+						  document.getElementById('loader').style.display = 'none';
 
-                         //    $(document).ready(function() {
 
-                         //        $("#data").fadeOut(30000);
-
-                         //        $("#id").unbind('click').on("click", function () {
-                         //            $("#data").fadeTo(1000, 0).slideUp(5000, function(){
-                         //            //$(this).remove();
-                         //            });   
-                         //        }, 5000);
-                         // });
                     }
                 })
             }
@@ -197,6 +172,9 @@ date_default_timezone_set('Asia/Manila');
 						success:function(data){
 							$('#data').html(data);
 							document.getElementById('data').style.display = 'block';
+
+						  	document.getElementById('loader').style.display = 'none';
+
 							
 						}
 					})
