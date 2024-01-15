@@ -4,6 +4,7 @@
 	<script>
 		new DataTable('table.display', {
 			paging: false,
+			ordering: false,
     		responsive: {
 				details: {
 					renderer: function (api, rowIdx, columns) {

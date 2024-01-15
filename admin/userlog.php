@@ -24,7 +24,7 @@
 								
 								<?php
 
-								$sql = mysqli_query($conn, "SELECT * FROM log ORDER BY date DESC");
+								$sql = mysqli_query($conn, "SELECT * FROM log ORDER BY logid DESC");
 								while($row = mysqli_fetch_array($sql)){ ?>
 
 									<tr>

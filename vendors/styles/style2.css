@@ -296,3 +296,8 @@ form button{
     border-radius: 5px;
 }
 
+.login-page {
+  background: url(../../upload/a.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+ }
