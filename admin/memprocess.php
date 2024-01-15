@@ -47,7 +47,7 @@ include '../php/db.php';
 
 
 								 ?></h4>
-								 <h4><a href="../borrower_page.php" class="btn btn-primary">BACK</a></h4>
+								 <h4><a href="../borrower_page" class="btn btn-primary">BACK</a></h4>
 					</div>
 
 
