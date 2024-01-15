@@ -48,7 +48,7 @@ date_default_timezone_set('Asia/Manila');
 </head>
 
 <body class="login-page">
-	<div class="login-header box-shadow">
+	<!-- <div class="login-header box-shadow">
 
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
@@ -57,7 +57,7 @@ date_default_timezone_set('Asia/Manila');
 				</a>
 			</div>
 		</div>
-	</div> 
+	</div>  -->
 
 
 	<div class="main">
