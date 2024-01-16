@@ -14,13 +14,17 @@ include '../php/db.php';
 	$keys = $_GET['key'];
 
  ?>
+	<!-- <style>
+		body {
+			overflow: hidden;
+		}
+	</style> -->
 
 
-
-	<div class="container" style="margin-top: 2em">
+	<div class="container" style="margin-top: 1em;">
 		<div class="">
 
-			<div class="card-box mb-30">
+			<div class="card-box ">
 					<div class="pd-20">
 						<h4 class="text-blue h4">Borrowers Name: 
 
@@ -54,9 +58,9 @@ include '../php/db.php';
 
 
 			
-					<div class="card-box mb-30"><br>
+					<div class="card-box "><br>
 					<div class="pb-20">
-						<table class="data-table table nowrap" id="example1">
+						<table class="table nowrap" id="borrow">
 
 
 							 <?php  
@@ -85,7 +89,7 @@ include '../php/db.php';
     unset($_SESSION['allowable']);
     
     ?>
-
+	
 							<thead>
 								<tr>
 									<th>Book Image</th>
@@ -157,6 +161,9 @@ include '../php/db.php';
 					</div>
 				</div>
 
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">							
 
 	<!-- js -->
 	<script src="../vendors/scripts/core.js"></script>
@@ -184,3 +191,13 @@ include '../php/db.php';
 	<script src="../src/plugins/datatables/js/vfs_fonts.js"></script>
 	<!-- Datatable Setting js -->
 	<script src="../vendors/scripts/datatable-setting.js"></script></body>
+	<script>
+			$(document).ready( function () {
+				$('#borrow').DataTable({
+					ordering: true,
+					responsive: true,
+					scrollY: 270,
+					paging: false,
+				});
+			} );
+		</script>
