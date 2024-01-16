@@ -53,8 +53,9 @@
 											<td><?php echo $row['section'] ?></td>
 										</tr>
 										<tr id="accordion_<?php echo $row['bookid']?>" class="collapse accordion-collapse" data-bs-parent="#accordionExample" >
+											
 											<td colspan="5">
-													<table class="table table-bordered table-sm table-striped">
+											<table class="table table-bordered table-sm table-striped">
 														<thead class="th-book">
 															<tr>
 																<th>Subtitle</th>
@@ -122,21 +123,11 @@
 
 															</tr>
 														</tbody>
-													</table>
-												<!-- <div>
-													<label>
-														subtitle
-													</label>
-													
-												</div>
-												<div>
-													<label>state1ber</label>
-													
-												</div> -->
+													</table>												
 												<a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
 												<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a>
 											</td>											
-										</tr>
+										</tr>										
 
 										<div class="modal fade" id="edit<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 <!-- update book -->
@@ -607,6 +598,15 @@
 							</div>
 		
 
+
+		<!-- <script>
+			$(document).ready( function () {
+				$('#book').DataTable({
+					ordering: false,
+					responsive: false
+				});
+			} );
+		</script>						 -->
 		<?php include 'footer.php';  ?>
 		
 
