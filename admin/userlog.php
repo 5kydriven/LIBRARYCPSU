@@ -6,7 +6,10 @@
 			
 				<div class="card-box mb-30">
 					<div class="pd-20">
-						<h4 class="text-blue h4">User's Log Sheet<a href="../php/excelExport.php?dt=logs" class="btn btn-success ml-1" style="float: right" id="2excel">Excel</a><a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a></h4>
+						<h4 class="text-blue h4">User's Log Sheet
+							<a href="../php/excelExport.php?dt=logs" class="btn btn-success ml-1" style="float: right" id="2excel">Excel</a>
+							<!-- <a href="" onclick="printContent('print')" id="hit" class="btn btn-primary" style="float: right">Print</a> -->
+						</h4>
 					</div>
 					<div class="pb-20" id="print">
 						<table class="display table stripe nowrap" id="log">
@@ -45,7 +48,7 @@
 						</table>
 					</div>
 				</div>
-				<script>
+				<!-- <script>
 					
 
 					function printContent(el) {
@@ -55,7 +58,7 @@
 						window.print();
 						document.body.innerHTML = restorepage;
 					}
-    			</script>
+    			</script> -->
 
 		<?php include 'footer.php'; ?>
 
