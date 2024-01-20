@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../vendors/styles/admin.css">
     <title>Admin Authentication</title>
 </head>
-<body>
+<body class="login-page">
     <div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
