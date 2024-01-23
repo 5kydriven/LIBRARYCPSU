@@ -154,7 +154,7 @@
 										</tr>
 
 										
-
+<!-- view Books -->
 								<div class="modal fade" id="view<?php echo $row['bookid'] ?>" tabindex="-1" role="dialog" aria-labelledby="myViewModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered modal-lg">
 										<div class="modal-content container-fluid">
