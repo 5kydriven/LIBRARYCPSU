@@ -4190,3 +4190,7 @@ table tbody {
 table .hover:hover {
   background-color: #000;
 }
+
+.table td {
+  font-weight: 400;
+}
