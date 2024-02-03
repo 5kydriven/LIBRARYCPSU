@@ -63,14 +63,14 @@
 									<div class="modal-dialog modal-dialog-centered modal-lg">
 										<div class="modal-content container-fluid">
 											<div class="modal-header">
-												<h5 class="modal-title" id="myViewModalLabel">Call Number: <span class="lead"><?php echo $row['callnum']?></span></h5>
+												<h5 class="modal-title" id="myViewModalLabel">Book Information</h5>
 												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 											</div>
 											<div class="modal-body row">
 												<!-- basic info of book -->
 												<div class="d-flex align-items-start gap-1">
 													<img src="../upload/logo.png" style="width: 150px" alt="">
-													<div class="col-auto pt-2 d-flex flex-column">													
+													<div class="col-auto pt-2 d-flex flex-column mt-3">													
 														<!-- <b>Title:</b>  -->
 														<label class="h4 m-0">
 															<?php echo $row['title']?>														
@@ -84,128 +84,110 @@
 															<?php echo $row['authors'] ?>									
 														</label>
 													</div>
-												</div>
-
-												<!-- Publisher info -->
-												<div class="">
-													<div class="form-group row">
-														<div class="col-sm-12 col-md-6">
-															<b>Publisher:</b> <?php echo $row['publisher'] ?>
+												</div> 									
+												
+												<div class="container mt-3" id="book-container-info">
+													<div class="row">
+														<div class="col-3 fw-bold border">Call Number:</div>
+														<div class="col nd-col border"><?php echo $row['callnum']?>></div>
+													</div>
+													<div class="row">
+														<div class="col-3 fw-bold border">Publisher:</div>
+														<div class="col nd-col border"><?php echo $row['publisher'] ?></div>
+													</div>
+													<div class="row">
+														<div class="col-3 fw-bold border">Year of publication:</div>
+														<div class="col nd-col border"><?php echo $row['publisherdate']?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Publisher City:</div>
+														<div class="col nd-col border"><?php echo $row['publication'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Edition:</div>
+														<div class="col nd-col border"><?php echo $row['edition'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Copies:</div>
+														<div class="col nd-col border"><?php echo $row['copies'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Physical Description:</div>
+														<div class="col nd-col border"><?php echo $row['physical'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Series:</div>
+														<div class="col nd-col border"><?php echo $row['series']?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">ISBN:</div>
+														<div class="col nd-col border"><?php echo $row['isbn'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Date Recieved:</div>
+														<div class="col nd-col border"><?php echo $row['dateres']?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Section:</div>
+														<div class="col nd-col border"><?php echo $row['section'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Book Dealer:</div>
+														<div class="col nd-col border"><?php echo $row['bookdealer']?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Copyright:</div>
+														<div class="col nd-col border"><?php echo $row['copyright'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Account Number:</div>
+														<div class="col nd-col border"><?php echo $row['accnum']?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Note:</div>
+														<div class="col nd-col border"><?php echo $row['notes'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Category:</div>
+														<div class="col nd-col border"><?php echo $row['category'] ?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Source of Fund:</div>
+														<div class="col nd-col border"><?php echo $row['srcfund']?></div>
+													</div>
+													<div class=row>
+														<div class="col-3 fw-bold border">Price:</div>
+														<div class="col nd-col border"><?php echo $row['price']?></div>
+													</div>
+													<div class=row>
+														<div class="col-5 border border-bottom-0 fw-bold ">Other Statement of Responsibility:</div>
+														<div class="col border lst-col border-bottom-0">
+															<div class="row border-bottom ps-2">
+																<span class="pe-1">1.</span><?php echo $row['state1']?>
+															</div>
+															<div class="row border-bottom ps-2">
+																<span class="pe-1">2.</span><?php echo $row['state2']?>
+															</div>
+															<div class="row ps-2">
+																<span class="pe-1">3.</span><?php echo $row['state3']?>
+															</div>
 														</div>
-														<div class="col-sm col">
-															<b>Publisher Date: </b><?php echo $row['publisherdate']?>
+													</div>
+													<div class=row>
+														<div class="col-5 border fw-bold ">Subject:</div>
+														<div class="col border lst-col">
+															<div class="row border-bottom ps-2">
+																1.<?php echo $row['sub1']?>
+															</div>
+															<div class="row border-bottom ps-2">
+																2.<?php echo $row['sub2']?>
+															</div>
+															<div class="row ps-2">
+																3.<?php echo $row['sub3']?>
+															</div>
 														</div>
-													</div>
-													<div class="form-group row">
-														<div class="col-sm-12 col-md-10">
-															<b>Place of publication:</b> <?php echo $row['publication'] ?>
-														</div>
-													</div>
-													<div class="form-group row">
-														<div class="col-sm-12 col-md-10">
-															<b>Edition: </b><?php echo $row['edition'] ?>
-														</div>
-													</div>
-													<div class="form-group row">
-														<div class="col-sm-12 col-md-10">
-															<b>Copies:</b> <?php echo $row['copies'] ?>
-														</div>
-													</div>
-												</div>
-
-												<div class="row">
-													<div class="col-sm-12 col-md-10 mb-1">
-														<b>Call No.: </b>
-													</div>
-												</div>
-												<div class="form-group row">													
-													<b>Other Statement of Responsibility: </b>													
-													<label class="col col-form-label "><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10 mb-1">
-														<?php echo $row['state1']?>
-													</div>
-													
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10 mb-1">
-														<?php echo $row['state2']?>
-													</div>
-													
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10">
-														<?php echo $row['state3']?>
 													</div>
 												</div>												
-																								
-												
-												
-												<div class="form-group row">
-													<label class="col-sm-12 col-md-2 col-form-label"></label>
-													<div>
-														<b>Physical description:</b> <?php echo $row['physical'] ?>
-													</div>
-												</div>					
-															
-												<div class="form-group row">
-													<div class="col-sm-12 col-md-10">
-														<b>Series: </b><?php echo $row['series']?>
-													</div>
-												</div>
-												<div class="form-group row">
-													<div class="col-sm-12 col-md-10 mb-1">
-														<b>Subject:</b> <?php echo $row['sub1']?>
-													</div>
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10 mb-1">
-														<?php echo $row['sub2']?>
-													</div>
-													<label class="col-sm-12 col-md-2 col-form-label"><i style="color:red;font-size:1.5em;"></i></label>
-													<div class="col-sm-12 col-md-10 mb-1">
-														<?php echo $row['sub3']?>
-													</div>
-												</div>
-												<div class="form-group row">
-													<div class="col-sm-12 col-md-10">
-														<b>Note:</b> <?php echo $row['notes'] ?>
-													</div>
-												</div>
-															
-												<div class="form-group row">
-													<b>ISBN:</b> <p><?php echo $row['isbn'] ?></p>
-												</div>
-												<div class="form-group row">
-													<b>Book Dealer:</b> <p><?php echo $row['bookdealer']?></p>
-												</div>
-												<div class="form-group row">
-													<b>Price:</b> <p><?php echo $row['price']?></p>
-												</div>
-															
-												<div class="form-group row">
-													<b>Copyright:</b> <p><?php echo $row['copyright'] ?></p>
-												</div>
-												<div class="form-group row">
-													<b>Account No.: </b><p><?php echo $row['accnum']?></p>
-												</div>
-												<div class="form-group row">
-													<b>Date received:</b> <p><?php echo $row['dateres']?></p>
-												</div>
-												<div class="form-group row">
-													<b>Source of Fund: </b>
-													<p><?php echo $row['srcfund']?></p>
-												</div>
-															
-												<div class="form-group row">
-													<b>Location: </b>
-													<p><?php echo $row['category'] ?></p>
-												</div>
-															
-												<div class="form-group row">
-													<b>Section: </b>
-													<p><?php echo $row['section'] ?></p>
-												</div>			
-												
-												<a href="" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $row['bookid'] ?>"><i class="fa fa-edit"></i></a>
-												<a href="../php/deletebook.php?bookid=<?php echo $row['bookid'] ?>" class="btn btn-danger" ><i class="fa fa-trash"></i></a>
-												
 											</div>
 										</div>
 									</div>

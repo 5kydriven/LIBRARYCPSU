@@ -4194,3 +4194,16 @@ table .hover:hover {
 .table td {
   font-weight: 400;
 }
+
+ #book-container-info .col-3 {
+  border-bottom: none !important;
+}
+  
+ #book-container-info .nd-col {
+  border-bottom: none !important;
+  border-left: none !important;
+}
+
+#book-container-info .lst-col {
+  border-left: none !important;
+}
