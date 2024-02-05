@@ -163,13 +163,22 @@
 														<div class="col-5 border border-bottom-0 fw-bold ">Other Statement of Responsibility:</div>
 														<div class="col border lst-col border-bottom-0">
 															<div class="row border-bottom ps-2">
-																<span class="pe-1">1.</span><?php echo $row['state1']?>
+																<label class="p-0 col-auto m-0">1.</label>
+																<span class="col p-0 ms-1">
+																	<?php echo $row['state1']?>
+																</span>
 															</div>
 															<div class="row border-bottom ps-2">
-																<span class="pe-1">2.</span><?php echo $row['state2']?>
+																<label class="p-0 col-auto m-0">2.</label>
+																<span class="col p-0 ms-1">
+																	<?php echo $row['state2']?>
+																</span>
 															</div>
 															<div class="row ps-2">
-																<span class="pe-1">3.</span><?php echo $row['state3']?>
+																<label class="p-0 col-auto m-0">3.</label>
+																<span class="col p-0 ms-1">
+																	<?php echo $row['state3']?>
+																</span>
 															</div>
 														</div>
 													</div>
@@ -177,13 +186,28 @@
 														<div class="col-5 border fw-bold ">Subject:</div>
 														<div class="col border lst-col">
 															<div class="row border-bottom ps-2">
-																1.<?php echo $row['sub1']?>
+																<span class="col-auto p-0 m-0">
+																	1.
+																</span>
+																<label class="col p-0 m-0 ms-1">
+																	<?php echo $row['sub1']?>
+																</label>
 															</div>
 															<div class="row border-bottom ps-2">
-																2.<?php echo $row['sub2']?>
+																<span class="col-auto p-0 m-0">
+																	2.
+																</span>
+																<label class="col p-0 m-0 ms-1">
+																	<?php echo $row['sub2']?>
+																</label>
 															</div>
 															<div class="row ps-2">
-																3.<?php echo $row['sub3']?>
+																<span class="col-auto p-0 m-0">
+																	3.
+																</span>
+																<label class="col p-0 m-0 ms-1">
+																	<?php echo $row['sub3']?>
+																</label>
 															</div>
 														</div>
 													</div>

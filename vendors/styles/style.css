@@ -4173,7 +4173,8 @@ body.IE .register-page-wrap .container {
   text-decoration: none;
 }
 
-.sidebar-menu .dropdown-toggle, .user-info-dropdown .dropdown-toggle {
+.sidebar-menu .dropdown-toggle,
+.user-info-dropdown .dropdown-toggle {
   text-decoration: none;
 }
 
@@ -4184,7 +4185,6 @@ table tr {
 
 table tbody {
   overflow-x: scroll;
-  
 }
 
 table .hover:hover {
@@ -4195,11 +4195,11 @@ table .hover:hover {
   font-weight: 400;
 }
 
- #book-container-info .col-3 {
+#book-container-info .col-3 {
   border-bottom: none !important;
 }
-  
- #book-container-info .nd-col {
+
+#book-container-info .nd-col {
   border-bottom: none !important;
   border-left: none !important;
 }
